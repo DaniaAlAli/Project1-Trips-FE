@@ -14,7 +14,6 @@ export const BackgroundImage = styled.ImageBackground`
   justify-content: center;
 `;
 
-
 export const SignInButtonStyled = styled(Button)`
   background-color: #74c66f;
   color: white;

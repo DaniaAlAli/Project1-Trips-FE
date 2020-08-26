@@ -26,6 +26,7 @@ const Signin = ({ navigation }) => {
 
   return (
     <BackgroundImage source={require(`../../Plane.png`)}>
+      {/* REVIEW: a better practice is to import the image at the top and render it */}
       <FormStyled>
         <Item floatingLabel>
           <Label style={{ color: "white" }}>Username</Label>

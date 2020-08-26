@@ -39,6 +39,7 @@ class AuthStore {
     const token = await AsyncStorage.getItem("myToken");
     if (token) {
       const user = decode(token);
+      // REVIEW: i believe in the BE you called it exp
       if (Date.now() < user.expires) {
         this.setUser(token);
       } else {

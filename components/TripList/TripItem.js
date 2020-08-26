@@ -10,6 +10,7 @@ import {
 
 const TripItem = ({ trip, navigation }) => {
   return (
+    // REVIEW: you don't need a fragment if you have a component that's wrapping everything
     <>
       <ListItem
       // onPress={() => navigation.navigate("Coffees", { trip: trip })}

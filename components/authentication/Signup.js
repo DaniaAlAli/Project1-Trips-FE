@@ -28,10 +28,12 @@ const Signup = ({ navigation }) => {
   };
 
   return (
+    // typo in the backgroundimage component below
     <BackgorundImage source={require(`../../Plane.png`)}>
       <FormStyled>
         <Item floatingLabel>
           <Label style={{ color: "white" }}>First Name</Label>
+          {/* REVIEW: Inline styling? */}
           <Input
             onChangeText={(firstName) => setUser({ ...user, firstName })}
           />
@@ -39,21 +41,29 @@ const Signup = ({ navigation }) => {
 
         <Item floatingLabel>
           <Label style={{ color: "white" }}>Last Name</Label>
+          {/* REVIEW: Inline styling? */}
+
           <Input onChangeText={(lastName) => setUser({ ...user, lastName })} />
         </Item>
 
         <Item floatingLabel>
           <Label style={{ color: "white" }}>Email</Label>
+          {/* REVIEW: Inline styling? */}
+
           <Input onChangeText={(email) => setUser({ ...user, email })} />
         </Item>
 
         <Item floatingLabel>
           <Label style={{ color: "white" }}>Username</Label>
+          {/* REVIEW: Inline styling? */}
+
           <Input onChangeText={(username) => setUser({ ...user, username })} />
         </Item>
 
         <Item floatingLabel last>
           <Label style={{ color: "white" }}>Password</Label>
+          {/* REVIEW: Inline styling? */}
+
           <Input
             secureTextEntry={true}
             onChangeText={(password) => setUser({ ...user, password })}
