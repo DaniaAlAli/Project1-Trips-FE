@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 //Styles
 import { Item, Label, Input, Text } from "native-base";
 import {
-  BackgorundImage,
+  BackgroundImage,
   CreateNewAccountStyled,
   SignUpButtonStyled,
   FormStyled,
@@ -25,7 +25,7 @@ const Signin = ({ navigation }) => {
   };
 
   return (
-    <BackgorundImage source={require(`../../Plane.png`)}>
+    <BackgroundImage source={require(`../../Plane.png`)}>
       <FormStyled>
         <Item floatingLabel>
           <Label style={{ color: "white" }}>Username</Label>
@@ -52,7 +52,7 @@ const Signin = ({ navigation }) => {
       <CreateNewAccountStyled primary>
         <Text onPress={() => navigation.navigate("Sign up")}>Register</Text>
       </CreateNewAccountStyled>
-    </BackgorundImage>
+    </BackgroundImage>
   );
 };
 

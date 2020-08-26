@@ -21,7 +21,7 @@ class AuthStore {
       await this.setUser(res.data.token);
       console.log(res.data.token);
     } catch (error) {
-      console.log("error", error);
+      console.log("error:", error);
     }
   };
 
@@ -31,7 +31,7 @@ class AuthStore {
       await this.setUser(res.data.token);
       console.log(res.data.token);
     } catch (error) {
-      console.log("error", error);
+      console.log("error:", error);
     }
   };
 

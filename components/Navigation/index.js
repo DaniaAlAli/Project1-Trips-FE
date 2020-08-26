@@ -5,7 +5,7 @@ import { observer } from "mobx-react";
 //components
 
 import Home from "../Home";
-// import TripList from "../TripList";
+//import TripList from "../TripList";
 // import AddTrip from "../AddTrip";
 // import TripDetail from "../TripDetail";
 import Signin from "../authentication/Signin";

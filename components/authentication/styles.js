@@ -2,7 +2,7 @@
 import styled from "styled-components/native";
 import { Button, Form } from "native-base";
 
-export const BackgorundImage = styled.ImageBackground`
+export const BackgroundImage = styled.ImageBackground`
   width: 100%;
   height: 100%;
 `;

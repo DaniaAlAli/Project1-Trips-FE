@@ -20,14 +20,10 @@ const Home = ({ navigation }) => {
       <Title>Plan your Trips</Title>
 
       <SignInButtonStyled onPress={() => navigation.navigate("Trips")}>
-
         <Text>Sign in</Text>
-
       </SignInButtonStyled>
       <SignUpButtonStyled onPress={() => navigation.navigate("Trips")}>
-
         <Text>Register</Text>
-        
       </SignUpButtonStyled>
     </BackgroundImage>
   );
