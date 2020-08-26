@@ -23,7 +23,7 @@ const Signin = ({ navigation }) => {
     await authStore.signin(user);
     if (authStore.user) navigation.replace("Home");
   };
-  
+
   return (
     <BackgorundImage source={require(`../../Plane.png`)}>
       <FormStyled>

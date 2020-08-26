@@ -14,6 +14,7 @@ export const FormStyled = styled(Form)`
 
 export const CreateNewAccountStyled = styled(Button)`
   align-self: center;
+  margin-top: auto;
   margin-bottom: auto;
 `;
 
