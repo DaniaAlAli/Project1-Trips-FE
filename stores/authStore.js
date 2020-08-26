@@ -35,11 +35,17 @@ class AuthStore {
     }
   };
 
+  signout = async () => {
+    delete instance.defaults.headers.common.Authorization;
+    await AsyncStorage.removeItem("myToken");
+    this.user = null;
+  };
+
   checkForToken = async () => {
     const token = await AsyncStorage.getItem("myToken");
     if (token) {
       const user = decode(token);
-      if (Date.now() < user.expires) {
+      if (Date.now() < user.exp) {
         this.setUser(token);
       } else {
         this.signout();

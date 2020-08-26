@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 //Styles
 import { Item, Label, Input, Text } from "native-base";
 import {
-  BackgorundImage,
+  BackgroundImage,
   CreateNewAccountStyled,
   SignUpButtonStyled,
   FormStyled,
@@ -28,28 +28,38 @@ const Signup = ({ navigation }) => {
   };
 
   return (
-    <BackgorundImage source={require(`../../Plane.png`)}>
+    <BackgroundImage source={require(`../../Plane.png`)}>
       <FormStyled>
         <Item floatingLabel>
           <Label style={{ color: "white" }}>First Name</Label>
           <Input
             onChangeText={(firstName) => setUser({ ...user, firstName })}
+            style={{ color: "white" }}
           />
         </Item>
 
         <Item floatingLabel>
           <Label style={{ color: "white" }}>Last Name</Label>
-          <Input onChangeText={(lastName) => setUser({ ...user, lastName })} />
+          <Input
+            onChangeText={(lastName) => setUser({ ...user, lastName })}
+            style={{ color: "white" }}
+          />
         </Item>
 
         <Item floatingLabel>
           <Label style={{ color: "white" }}>Email</Label>
-          <Input onChangeText={(email) => setUser({ ...user, email })} />
+          <Input
+            onChangeText={(email) => setUser({ ...user, email })}
+            style={{ color: "white" }}
+          />
         </Item>
 
         <Item floatingLabel>
           <Label style={{ color: "white" }}>Username</Label>
-          <Input onChangeText={(username) => setUser({ ...user, username })} />
+          <Input
+            onChangeText={(username) => setUser({ ...user, username })}
+            style={{ color: "white" }}
+          />
         </Item>
 
         <Item floatingLabel last>
@@ -57,6 +67,7 @@ const Signup = ({ navigation }) => {
           <Input
             secureTextEntry={true}
             onChangeText={(password) => setUser({ ...user, password })}
+            style={{ color: "white" }}
           />
         </Item>
       </FormStyled>
@@ -66,11 +77,11 @@ const Signup = ({ navigation }) => {
       </SignUpButtonStyled>
 
       <CreateNewAccountStyled primary>
-        <Text onPress={() => navigation.navigate("Sign in")}>
+        <Text onPress={() => navigation.navigate("Signin")}>
           already have an account? Sign in!
         </Text>
       </CreateNewAccountStyled>
-    </BackgorundImage>
+    </BackgroundImage>
   );
 };
 

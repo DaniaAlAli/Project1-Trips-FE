@@ -21,7 +21,7 @@ const Signin = ({ navigation }) => {
 
   const handleSubmit = async () => {
     await authStore.signin(user);
-    if (authStore.user) navigation.replace("Home");
+    if (authStore.user) navigation.navigate("Trips");
   };
 
   return (
@@ -32,6 +32,7 @@ const Signin = ({ navigation }) => {
           <Input
             value={user.username}
             onChangeText={(username) => setUser({ ...user, username })}
+            style={{ color: "white" }}
           />
         </Item>
 
@@ -41,6 +42,7 @@ const Signin = ({ navigation }) => {
             secureTextEntry={true}
             value={user.password}
             onChangeText={(password) => setUser({ ...user, password })}
+            style={{ color: "white" }}
           />
         </Item>
       </FormStyled>
@@ -50,7 +52,7 @@ const Signin = ({ navigation }) => {
       </SignUpButtonStyled>
 
       <CreateNewAccountStyled primary>
-        <Text onPress={() => navigation.navigate("Sign up")}>Register</Text>
+        <Text onPress={() => navigation.navigate("Signup")}>Register</Text>
       </CreateNewAccountStyled>
     </BackgroundImage>
   );

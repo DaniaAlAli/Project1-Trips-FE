@@ -19,10 +19,10 @@ const Home = ({ navigation }) => {
     >
       <Title>Plan your Trips</Title>
 
-      <SignInButtonStyled onPress={() => navigation.navigate("Trips")}>
+      <SignInButtonStyled onPress={() => navigation.navigate("Signin")}>
         <Text>Sign in</Text>
       </SignInButtonStyled>
-      <SignUpButtonStyled onPress={() => navigation.navigate("Trips")}>
+      <SignUpButtonStyled onPress={() => navigation.navigate("Signup")}>
         <Text>Register</Text>
       </SignUpButtonStyled>
     </BackgroundImage>
