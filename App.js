@@ -1,21 +1,13 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import TripList from "./components/TripList";
+import { NavigationContainer } from "@react-navigation/native";
+
+// Components
+import RootNavigator from "./components/Navigation";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <TripList />
-    </View>
+    <NavigationContainer>
+      <RootNavigator />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
-});
