@@ -62,13 +62,17 @@ const Signup = ({ navigation }) => {
       </FormStyled>
 
       <SignUpButtonStyled onPress={handleSubmit} block>
+
         <Text>Sign up</Text>
+
       </SignUpButtonStyled>
 
       <CreateNewAccountStyled primary>
+
         <Text onPress={() => navigation.navigate("Sign in")}>
           already have an account? Sign in!
         </Text>
+        
       </CreateNewAccountStyled>
     </BackgorundImage>
   );

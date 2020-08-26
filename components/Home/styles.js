@@ -24,6 +24,7 @@ export const SignInButtonStyled = styled(Button)`
   padding-right: 40px;
   padding-left: 40px;
 `;
+
 export const SignUpButtonStyled = styled(Button)`
   background-color: #74c66f;
   color: white;
