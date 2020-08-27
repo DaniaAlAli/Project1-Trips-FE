@@ -11,6 +11,7 @@ import {
 
 // Stores
 import tripStore from "../../stores/tripStore";
+import UpdateButton from "../buttons/UpdateButton";
 
 const TripItem = ({ trip, navigation }) => {
   return (
@@ -46,6 +47,7 @@ const TripItem = ({ trip, navigation }) => {
               name="trash"
               onPress={() => tripStore.deleteTrip(trip.id)}
             />
+            <UpdateButton trip={trip} />
           </StyledCard>
         </StyledContent>
       </ListItem>

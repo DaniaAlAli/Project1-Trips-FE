@@ -16,14 +16,23 @@ import {
   ModalTextInput,
   ModalView,
 } from "./styles";
-import { View } from "native-base";
 
-const TripModal = ({ closeModal, isOpen, navigation }) => {
-  const [trip, setTrip] = useState({
-    destination: "",
-    details: "",
-    image: "",
-  });
+const TripModal = ({ closeModal, isOpen, oldTrip, route }) => {
+  console.log("route", route);
+  const [trip, setTrip] = useState(
+    oldTrip
+      ? {
+          destination: oldTrip.destination,
+          details: oldTrip.details,
+          image: oldTrip.image,
+          date: oldTrip.date,
+        }
+      : { destination: "", details: "", image: "", date: "" }
+  );
+
+  // const handleChange =() => {
+  //   setTrip({...trip,})
+  // }
 
   const handleSubmit = () => {
     tripStore.createTrip(trip);
@@ -58,6 +67,11 @@ const TripModal = ({ closeModal, isOpen, navigation }) => {
           <ModalTextInput
             onChangeText={(image) => setTrip({ ...trip, image })}
             placeholder="Image"
+            placeholderTextColor="#000000"
+          />
+          <ModalTextInput
+            onChangeText={(date) => setTrip({ ...trip, date })}
+            placeholder="Date"
             placeholderTextColor="#000000"
           />
           <CreateButton onPress={handleSubmit}>
