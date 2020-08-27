@@ -53,11 +53,11 @@ const TripDetail = ({ route }) => {
                   <CountryButtonStyled type="Entypo" name="location" />
                   Country:
                 </DetailTitle>
-                <DetailField>{trip.destination}</DetailField>
+                <DetailField>{trip.country}</DetailField>
               </DetailDiv>
               <DetailDiv>
                 <DetailTitle>
-                  <DateButtonStyled type="Fontisto" name="date" />
+                  <DateButtonStyled type="MaterialIcons" name="date-range" />
                   Date:
                 </DetailTitle>
                 <DetailField>{trip.date}</DetailField>

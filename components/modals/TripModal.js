@@ -17,25 +17,34 @@ import {
   ModalView,
 } from "./styles";
 
-const TripModal = ({ closeModal, isOpen, oldTrip, route }) => {
-  console.log("route", route);
+const TripModal = ({ closeModal, isOpen, oldTrip }) => {
   const [trip, setTrip] = useState(
-    oldTrip
-      ? {
-          destination: oldTrip.destination,
-          details: oldTrip.details,
-          image: oldTrip.image,
-          date: oldTrip.date,
-        }
-      : { destination: "", details: "", image: "", date: "" }
+    oldTrip ?? {
+      country: "",
+      destination: "",
+      details: "",
+      image: "",
+      date: "",
+    }
   );
 
-  // const handleChange =() => {
-  //   setTrip({...trip,})
-  // }
+  // const handleChange = (event) => {
+  //   setTrip({ ...trip, [event.target.name]: event.target.value });
+  // };
 
   const handleSubmit = () => {
-    tripStore.createTrip(trip);
+    if (oldTrip) {
+      tripStore.updateTrip(trip);
+    } else {
+      tripStore.createTrip(trip);
+      setTrip({
+        country: "",
+        destination: "",
+        details: "",
+        image: "",
+        date: "",
+      });
+    }
     closeModal();
   };
 
@@ -55,27 +64,37 @@ const TripModal = ({ closeModal, isOpen, oldTrip, route }) => {
           />
           <ModalTitle>Where did you go?</ModalTitle>
           <ModalTextInput
+            onChangeText={(country) => setTrip({ ...trip, country })}
+            placeholder="Country"
+            placeholderTextColor="#000000"
+            value={trip.country}
+          />
+          <ModalTextInput
             onChangeText={(destination) => setTrip({ ...trip, destination })}
             placeholder="Destination"
             placeholderTextColor="#000000"
+            value={trip.destination}
           />
           <ModalTextInput
             onChangeText={(details) => setTrip({ ...trip, details })}
             placeholder="Details"
             placeholderTextColor="#000000"
+            value={trip.details}
           />
           <ModalTextInput
             onChangeText={(image) => setTrip({ ...trip, image })}
             placeholder="Image"
             placeholderTextColor="#000000"
+            value={trip.image}
           />
           <ModalTextInput
             onChangeText={(date) => setTrip({ ...trip, date })}
             placeholder="Date"
             placeholderTextColor="#000000"
+            value={trip.date}
           />
           <CreateButton onPress={handleSubmit}>
-            <CreateButtonText>Create Trip</CreateButtonText>
+            <CreateButtonText>{oldTrip ? "Update" : "Create"}</CreateButtonText>
           </CreateButton>
         </ModalView>
       </ModalContainer>
