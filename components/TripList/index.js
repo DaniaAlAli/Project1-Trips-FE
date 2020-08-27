@@ -10,6 +10,7 @@ import AddButton from "../buttons/AddButton";
 import tripStore from "../../stores/tripStore";
 
 const TripList = ({ navigation }) => {
+  // REVIEW: Since your data is now coming from the backend you need the loading
   // if (tripStore.loading) return <Spinner />;
 
   const tripList = tripStore.trips.map((trip) => (

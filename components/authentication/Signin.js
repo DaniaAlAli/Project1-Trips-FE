@@ -25,6 +25,7 @@ const Signin = ({ navigation }) => {
   };
 
   return (
+    // REVIEW: Move inline styling to styles.js
     <BackgroundImage source={require(`../../Plane.png`)}>
       <FormStyled>
         <Item floatingLabel>

@@ -30,6 +30,10 @@ const TripDetail = ({ route }) => {
           <CardItem>
             <Body>
               <StyledImage
+                // REVIEW: You can clean this up to be source={
+                //     {{ uri: trip.image ||
+                //           "https://images.unsplash.com/photo-1564689510742-4e9c7584181d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+                //        }}
                 source={
                   trip.image
                     ? { uri: trip.image }
