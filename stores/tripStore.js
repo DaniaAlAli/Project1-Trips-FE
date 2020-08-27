@@ -18,6 +18,8 @@ class TripStore {
     }
   };
 
+  // REVIEW: Remove old comments
+
   // Now we are using dummydata for front end, code commented(13-20) out for when backend is integrated
   createTrip = async (newTrip) => {
     try {

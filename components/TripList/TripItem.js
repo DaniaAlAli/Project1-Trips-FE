@@ -8,12 +8,14 @@ import {
   StyledImage,
   DeleteTrip,
 } from "./styles";
+// REVIEW: Remove imports you're not using
 
 // Stores
 import tripStore from "../../stores/tripStore";
 
 const TripItem = ({ trip, navigation }) => {
   return (
+    // REVIEW: Remove fragment
     <>
       <ListItem
         onPress={() => navigation.navigate("Trip Detail", { trip: trip })}
