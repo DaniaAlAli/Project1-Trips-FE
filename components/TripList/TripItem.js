@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react";
 import { CardItem, Left, Right, ListItem, Text } from "native-base";
 
 import {
@@ -55,4 +56,4 @@ const TripItem = ({ trip, navigation }) => {
   );
 };
 
-export default TripItem;
+export default observer(TripItem);
