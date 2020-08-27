@@ -2,7 +2,7 @@ import { decorate, observable } from "mobx";
 
 //Stores
 import trips from "../trips";
-
+import instance from "./instance";
 class TripStore {
   trips = trips;
 
@@ -18,6 +18,25 @@ class TripStore {
     // } catch (error) {
     //   console.log("TripStore -> createTrip -> error", error);
     // }
+  };
+
+  updateTrip = async (updatedOne) => {
+    try {
+      await instance.put(`/trips/${updatedOne.id}`, updatedOne);
+      const trip = this.trips.find((trip) => trip.id === updatedOne.id);
+      for (const key in updatedOne) trip[key] = updatedOne[key];
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
+
+  deleteTrip = async (TripId) => {
+    try {
+      await instance.delete(`/trips/${TripId}`);
+      this.trips = this.trips.filter((trip) => trip.id !== TripId);
+    } catch (error) {
+      console.log("error:", error);
+    }
   };
 }
 

@@ -15,8 +15,8 @@ const RootNavigator = () => {
   return (
     <Navigator initialRouteName="Home">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
-      {/* ADD DETAIL LIST */}
       <Screen name="Trips" component={TripList} />
+
       <Screen
         name="Signin"
         component={Signin}

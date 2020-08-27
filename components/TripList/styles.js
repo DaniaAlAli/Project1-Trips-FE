@@ -2,6 +2,13 @@ import styled from "styled-components/native";
 
 import { Image } from "react-native";
 import { Card, Content } from "native-base";
+import { Icon } from "native-base";
+
+export const DeleteTrip = styled(Icon)`
+  color: red;
+  padding-top: 20px;
+  padding-right: 20px;
+`;
 
 export const AddButton = styled.TouchableOpacity`
   align-self: stretch;

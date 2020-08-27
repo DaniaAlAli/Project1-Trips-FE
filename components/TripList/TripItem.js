@@ -6,7 +6,11 @@ import {
   StyledCard,
   StyledContent,
   StyledImage,
+  DeleteTrip,
 } from "./styles";
+
+// Stores
+import tripStore from "../../stores/tripStore";
 
 const TripItem = ({ trip, navigation }) => {
   return (
@@ -36,6 +40,12 @@ const TripItem = ({ trip, navigation }) => {
                 <Text>{trip.details}</Text>
               </Right>
             </CardItem>
+
+            <DeleteTrip
+              type="EvilIcons"
+              name="trash"
+              onPress={() => tripStore.deleteTrip(trip.id)}
+            />
           </StyledCard>
         </StyledContent>
       </ListItem>
