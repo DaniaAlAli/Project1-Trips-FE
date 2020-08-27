@@ -12,7 +12,7 @@ const TripItem = ({ trip, navigation }) => {
   return (
     <>
       <ListItem
-      // onPress={() => navigation.navigate("Coffees", { trip: trip })}
+        onPress={() => navigation.navigate("Trip Detail", { trip: trip })}
       >
         <StyledContent>
           <StyledCard>
