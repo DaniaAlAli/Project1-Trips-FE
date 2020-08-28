@@ -1,7 +1,5 @@
 import { decorate, observable } from "mobx";
 
-//Stores
-import trips from "../trips";
 import instance from "./instance";
 
 class TripStore {

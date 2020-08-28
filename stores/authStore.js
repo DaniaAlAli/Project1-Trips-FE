@@ -41,6 +41,10 @@ class AuthStore {
     this.user = null;
   };
 
+  getUserById = (userId) => {
+    return this.users.find((user) => user.id === userId);
+  };
+
   checkForToken = async () => {
     const token = await AsyncStorage.getItem("myToken");
     if (token) {

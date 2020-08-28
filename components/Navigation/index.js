@@ -3,12 +3,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { observer } from "mobx-react";
 
 //components
-
 import Home from "../Home";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 import TripList from "../TripList/index";
 import TripDetail from "../TripDetail/index";
+import ProfileList from "../Profile";
+import HomeButton from "../buttons/HomeButton";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -37,6 +38,16 @@ const RootNavigator = () => {
         name="Signup"
         component={Signup}
         options={{ headerShown: false }}
+      />
+      <Screen
+        name="MyProfile"
+        component={ProfileList}
+        // options={({ route }) => {
+        //   const { user } = route.params;
+        //   return {
+        //     title: user.username,
+        //   };
+        // }}
       />
     </Navigator>
   );
