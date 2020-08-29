@@ -1,4 +1,6 @@
 import React from "react";
+import authStore from "../../stores/authStore";
+import { observer } from "mobx-react";
 
 //Styles
 import {
@@ -19,8 +21,14 @@ const Home = ({ navigation }) => {
     >
       <Title>Plan your Trips</Title>
 
-      <SignInButtonStyled onPress={() => navigation.navigate("Signin")}>
-        <Text>Sign in</Text>
+      <SignInButtonStyled
+        onPress={
+          authStore.user
+            ? authStore.signout
+            : () => navigation.navigate("Signin")
+        }
+      >
+        <Text>{authStore.user ? "Sign out" : "Sign in"}</Text>
       </SignInButtonStyled>
       <SignUpButtonStyled onPress={() => navigation.navigate("Signup")}>
         <Text>Register</Text>
@@ -29,4 +37,4 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default observer(Home);
