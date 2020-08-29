@@ -9,7 +9,6 @@ import Signup from "../authentication/Signup";
 import TripList from "../TripList/index";
 import TripDetail from "../TripDetail/index";
 import ProfileList from "../Profile";
-import HomeButton from "../buttons/HomeButton";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -42,12 +41,12 @@ const RootNavigator = () => {
       <Screen
         name="MyProfile"
         component={ProfileList}
-        // options={({ route }) => {
-        //   const { user } = route.params;
-        //   return {
-        //     title: user.username,
-        //   };
-        // }}
+        options={({ route }) => {
+          const { user } = route.params;
+          return {
+            title: user.username,
+          };
+        }}
       />
     </Navigator>
   );

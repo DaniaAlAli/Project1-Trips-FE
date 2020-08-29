@@ -1,21 +1,12 @@
-import React, { useState } from "react";
-import { ListItem, Text } from "native-base";
+import React from "react";
+import { ListItem, Text, Thumbnail } from "native-base";
 import { observer } from "mobx-react";
-import { TextInput } from "react-native-gesture-handler";
 
-const ProfileItim = () => {
-  const [pro, setProfile] = useState({
-    bio: "",
-  });
+const ProfileItim = ({ pro }) => {
   return (
     <ListItem>
-      <TextInput
-        onChangeText={(bio) => setProfile({ ...pro, bio })}
-        placeholder="Bio"
-        placeholderTextColor="#000000"
-
-        // value={pro.bio}
-      />
+      <Thumbnail square source={pro.image} />
+      <Text>Bio: {pro.bio}</Text>
     </ListItem>
   );
 };
