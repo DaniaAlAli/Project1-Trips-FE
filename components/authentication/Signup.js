@@ -24,7 +24,7 @@ const Signup = ({ navigation }) => {
 
   const handleSubmit = async () => {
     await authStore.signup(user);
-    if (authStore.user) navigation.navigate("Trips");
+    if (authStore.user) navigation.navigate("MyProfile", { user: user });
   };
 
   return (
@@ -78,7 +78,7 @@ const Signup = ({ navigation }) => {
 
       <CreateNewAccountStyled primary>
         <Text onPress={() => navigation.navigate("Signin")}>
-          already have an account? Sign in!
+          Already have an account? Sign in!
         </Text>
       </CreateNewAccountStyled>
     </BackgroundImage>
