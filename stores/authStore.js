@@ -13,7 +13,7 @@ class AuthStore {
     await AsyncStorage.setItem("myToken", token);
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     this.user = decode(token);
-    console.log("AuthStore -> setUser -> this.user", this.user.profile);
+    // console.log("AuthStore -> setUser -> this.user", this.user);
   };
 
   signup = async (userData) => {

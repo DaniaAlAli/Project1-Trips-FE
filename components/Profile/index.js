@@ -1,22 +1,20 @@
 import React from "react";
 import ProfileItim from "./ProfileItim";
-import { List, ListItem } from "native-base";
+import { List, ListItem, Text } from "native-base";
 import { observer } from "mobx-react";
 
 // Store
 import authStore from "../../stores/authStore";
 
 const ProfileList = () => {
-  // Sorry I didn't fix it
-  // const profileList = authStore.user.profile;
-  console.log("ProfileList -> profileList", profileList);
-  // .filter((profile) => profile.userId === user.id)
-  // .map((profile) => profile);
-  // console.log("ProfileList -> profileList", profileList);
+  const user = authStore.user;
+  const myProfile = user.profile.map((user) => (
+    <ProfileItim profile={profile} key={profile.id} />
+  ));
 
   return (
     <List>
-      <ListItem>{profileList}</ListItem>
+      <Text>{myProfile}</Text>
     </List>
   );
 };
