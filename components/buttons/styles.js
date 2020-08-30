@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Button } from "native-base";
 
 export const AddButtonStyled = styled.TouchableOpacity`
   align-self: stretch;
@@ -12,4 +13,12 @@ export const AddButtonText = styled.Text`
   color: #ffffff;
   font-weight: bold;
   font-size: 18px;
+`;
+
+export const EditProfile = styled(Button)`
+  margin-top: 20px;
+  margin-left: 275px;
+  width: 50;
+  height: 50;
+  border-radius: 50;
 `;

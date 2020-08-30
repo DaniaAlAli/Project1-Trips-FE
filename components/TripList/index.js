@@ -25,9 +25,12 @@ const TripList = ({ navigation }) => {
       <TripItem trip={trip} key={trip.id} navigation={navigation} />
     ));
 
-  // {authStore.user.id === authStore.user.profile.userId
+  // {authStore.user.id === authStore.user.profile.userId (this line is wrong)
   //   ? userTripList
   //   : tripList}
+
+  //Check which screen your one and filter depending
+  //have one master list that has everything and then conditionnaly filter depending which list you want to render on the screen
 
   return (
     <Content>

@@ -3,13 +3,15 @@ import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native";
 import { observer } from "mobx-react";
 import moment from "moment";
-import { Text } from "native-base";
+import { Text, Right } from "native-base";
 
 //Components
 import UserTripList from "../UserTripList";
+import EditButton from "../buttons/EditButton";
 
 // Store
 import authStore from "../../stores/authStore";
+import tripStore from "../../stores/tripStore";
 
 //Styles
 import {
@@ -25,8 +27,8 @@ import {
 } from "./styles";
 
 const ProfileList = ({ navigation }) => {
-  // const user = authStore.user;
-  // console.log("ProfileList -> user", user);
+  // const user2 = authStore.user;
+  // console.log("ProfileList -> user", user2);
   // const profile = authStore.user.profile;
   // console.log("ProfileList -> profile", profile);
 
@@ -37,13 +39,21 @@ const ProfileList = ({ navigation }) => {
 
   // console.log("ProfileList -> user", user);
 
-  const user = authStore.user;
-  const profile = authStore.user.profile;
+  const { user } = authStore;
+  const profile = user.profile;
+  // console.log("ProfileList -> profile", profile);
+  // // const trips = tripStore.trips;
+  // // console.log("ProfileList -> trips", trips);
+
+  // // console.log("ProfileList -> user", user);
 
   return (
     <SafeAreaView>
       <ScrollView>
         <UserInfo>
+          <Right>
+            <EditButton profile={profile} />
+          </Right>
           <ProfileImage
             source={
               profile.image ?? {
@@ -52,18 +62,21 @@ const ProfileList = ({ navigation }) => {
               }
             }
           />
+
           <Name>
             <FirstName>{user.firstName}</FirstName>
             <LastName>{user.lastName}</LastName>
           </Name>
           <UserName>@{user.username}</UserName>
-          <Joined>Traveling since {moment(user.createdAt).format("yy")}</Joined>
+          <Joined>
+            Traveling since {moment(user.createdAt).format("dddd")}
+          </Joined>
           <Bio>{profile.bio}</Bio>
         </UserInfo>
         <DiscoverButton block onPress={() => navigation.navigate("Trips")}>
           <Text>Discover</Text>
         </DiscoverButton>
-        <UserTripList />
+        <UserTripList navigation={navigation} />
       </ScrollView>
     </SafeAreaView>
   );

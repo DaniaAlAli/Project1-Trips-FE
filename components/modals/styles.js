@@ -31,8 +31,7 @@ export const ModalView = styled.View`
   flex: 1;
   background-color: #ffffff;
   border-radius: 10;
-  padding: 20px;
-  margin: 50px;
+  padding: 10px;
 `;
 
 export const ModalTitle = styled.Text`
@@ -50,4 +49,10 @@ export const ModalTextInput = styled.TextInput`
   color: darkblue;
   border-bottom-color: navy;
   border-bottom-width: 1px;
+`;
+
+export const NameField = styled.Text`
+  color: grey;
+  font-size: 15px;
+  margin-bottom: 10px;
 `;
