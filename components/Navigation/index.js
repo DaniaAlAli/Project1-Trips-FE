@@ -44,12 +44,14 @@ const RootNavigator = () => {
       <Screen
         name="MyProfile"
         component={ProfileList}
-        options={({ route }) => {
-          const { user } = route.params;
-          return {
-            title: user.username,
-          };
-        }}
+        options={{ headerShown: false }}
+
+        // {({ route }) => {
+        //   const { user } = route.params;
+        //   return {
+        //     title: user.username,
+        //   };
+        // }}
       />
     </Navigator>
   );

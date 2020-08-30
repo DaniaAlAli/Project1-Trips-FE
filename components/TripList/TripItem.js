@@ -27,7 +27,7 @@ const TripItem = ({ trip, navigation }) => {
           <StyledCard>
             <Left></Left>
             <Left></Left>
-            <CreatedAt>{moment(trip.createdAt).fromNow("day")}</CreatedAt>
+            <CreatedAt>{moment(trip.createdAt).fromNow()}</CreatedAt>
             <CardItem cardBody>
               <StyledImage
                 source={

@@ -76,12 +76,6 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
             value={trip.destination}
           />
           <ModalTextInput
-            onChangeText={(details) => setTrip({ ...trip, details })}
-            placeholder="Details"
-            placeholderTextColor="#000000"
-            value={trip.details}
-          />
-          <ModalTextInput
             onChangeText={(image) => setTrip({ ...trip, image })}
             placeholder="Image"
             placeholderTextColor="#000000"
@@ -92,6 +86,13 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
             placeholder="Date"
             placeholderTextColor="#000000"
             value={trip.date}
+          />
+          <ModalTextInput
+            multiline={true}
+            onChangeText={(details) => setTrip({ ...trip, details })}
+            placeholder="Details"
+            placeholderTextColor="#000000"
+            value={trip.details}
           />
           <CreateButton onPress={handleSubmit}>
             <CreateButtonText>{oldTrip ? "Update" : "Create"}</CreateButtonText>
