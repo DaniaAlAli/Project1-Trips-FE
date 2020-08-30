@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { observer } from "mobx-react";
 import { CardItem, Left, Right, ListItem, Text } from "native-base";
+import moment from "moment";
 
 import {
   TripItemStyled,
@@ -8,11 +9,13 @@ import {
   StyledContent,
   StyledImage,
   DeleteTrip,
+  CreatedAt,
 } from "./styles";
 
 // Stores
 import tripStore from "../../stores/tripStore";
 import UpdateButton from "../buttons/UpdateButton";
+import authStore from "../../stores/authStore";
 
 const TripItem = ({ trip, navigation }) => {
   return (
@@ -22,6 +25,9 @@ const TripItem = ({ trip, navigation }) => {
       >
         <StyledContent>
           <StyledCard>
+            <Left></Left>
+            <Left></Left>
+            <CreatedAt>{moment(trip.createdAt).fromNow("day")}</CreatedAt>
             <CardItem cardBody>
               <StyledImage
                 source={
