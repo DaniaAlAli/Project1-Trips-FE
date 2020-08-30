@@ -16,8 +16,11 @@ const RootNavigator = () => {
   return (
     <Navigator initialRouteName="Home">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
-      <Screen name="Trips" component={TripList} />
-
+      <Screen
+        name="Trips"
+        component={TripList}
+        options={{ title: "Discover" }}
+      />
       <Screen
         name="Trip Detail"
         component={TripDetail}

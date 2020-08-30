@@ -19,7 +19,7 @@ const Home = ({ navigation }) => {
           "https://i.pinimg.com/564x/c3/6b/2d/c36b2d9bdeb54f16d687f4f2df193e04.jpg",
       }}
     >
-      <Title>Plan your Trips</Title>
+      <Title>Share your Trips</Title>
 
       <SignInButtonStyled
         onPress={

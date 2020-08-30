@@ -48,3 +48,9 @@ export const StyledView = styled.View`
   padding-left: auto;
   padding-right: auto;
 `;
+
+export const CreatedAt = styled.Text`
+  color: grey;
+  text-align: right;
+  margin-right: 10px;
+`;
