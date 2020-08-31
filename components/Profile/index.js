@@ -6,8 +6,9 @@ import moment from "moment";
 import { Text, Right } from "native-base";
 
 //Components
-import UserTripList from "../UserTripList";
+// import UserTripList from "../UserTripList";
 import EditButton from "../buttons/EditButton";
+import TripList from "../TripList";
 
 // Store
 import authStore from "../../stores/authStore";
@@ -73,10 +74,11 @@ const ProfileList = ({ navigation }) => {
           </Joined>
           <Bio>{profile.bio}</Bio>
         </UserInfo>
-        <DiscoverButton block onPress={() => navigation.navigate("Trips")}>
+        <DiscoverButton block onPress={() => navigation.navigate("Discover")}>
           <Text>Discover</Text>
         </DiscoverButton>
-        <UserTripList navigation={navigation} />
+        {/* <UserTripList navigation={navigation} my /> */}
+        <TripList navigation={navigation} myTrips={authStore.myTrips} />
       </ScrollView>
     </SafeAreaView>
   );

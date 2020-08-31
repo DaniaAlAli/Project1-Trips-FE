@@ -5,9 +5,14 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 //Decode
 import decode from "jwt-decode";
+import tripStore from "./tripStore";
 
 class AuthStore {
   user = null;
+
+  myTrips = this.user
+    ? tripStore.trips.filter((trip) => trip.userId === this.user.id)
+    : [];
 
   setUser = async (token) => {
     await AsyncStorage.setItem("myToken", token);
@@ -63,6 +68,7 @@ class AuthStore {
 
 decorate(AuthStore, {
   user: observable,
+  myTrips: observable,
 });
 
 const authStore = new AuthStore();
