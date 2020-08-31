@@ -26,10 +26,6 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
     image: oldProfile.image,
   });
 
-  // const handleChange = (event) => {
-  //   setTrip({ ...trip, [event.target.name]: event.target.value });
-  // };
-
   const handleSubmit = () => {
     profileStore.updateProfile(profile);
     closeModal();

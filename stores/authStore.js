@@ -10,15 +10,10 @@ import tripStore from "./tripStore";
 class AuthStore {
   user = null;
 
-  myTrips = this.user
-    ? tripStore.trips.filter((trip) => trip.userId === this.user.id)
-    : [];
-
   setUser = async (token) => {
     await AsyncStorage.setItem("myToken", token);
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     this.user = decode(token);
-    // console.log("AuthStore -> setUser -> this.user", this.user);
   };
 
   signup = async (userData) => {
@@ -68,7 +63,6 @@ class AuthStore {
 
 decorate(AuthStore, {
   user: observable,
-  myTrips: observable,
 });
 
 const authStore = new AuthStore();
