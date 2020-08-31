@@ -9,6 +9,7 @@ import Signup from "../authentication/Signup";
 import TripList from "../TripList/index";
 import TripDetail from "../TripDetail/index";
 import ProfileList from "../Profile";
+import Discover from "../../Discover";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -17,8 +18,8 @@ const RootNavigator = () => {
     <Navigator initialRouteName="Home">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
-        name="Trips"
-        component={TripList}
+        name="Discover"
+        component={Discover}
         options={{ title: "Discover" }}
       />
       <Screen

@@ -48,7 +48,6 @@ const TripItem = ({ trip, navigation }) => {
                 <Text>{trip.details}</Text>
               </Right>
             </CardItem>
-
             <DeleteTrip
               type="EvilIcons"
               name="trash"

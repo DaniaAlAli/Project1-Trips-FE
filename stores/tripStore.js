@@ -1,6 +1,7 @@
 import { decorate, observable } from "mobx";
 
 import instance from "./instance";
+import authStore from "./authStore";
 
 class TripStore {
   trips = [];
