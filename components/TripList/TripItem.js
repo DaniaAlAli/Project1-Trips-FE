@@ -17,7 +17,7 @@ import tripStore from "../../stores/tripStore";
 import UpdateButton from "../buttons/UpdateButton";
 import authStore from "../../stores/authStore";
 
-const TripItem = ({ trip, navigation }) => {
+const TripItem = ({ trip, navigation, myTrips }) => {
   return (
     <>
       <ListItem
@@ -48,12 +48,16 @@ const TripItem = ({ trip, navigation }) => {
                 <Text>{trip.details}</Text>
               </Right>
             </CardItem>
-            <DeleteTrip
-              type="EvilIcons"
-              name="trash"
-              onPress={() => tripStore.deleteTrip(trip.id)}
-            />
-            <UpdateButton trip={trip} />
+            {myTrips && (
+              <>
+                <DeleteTrip
+                  type="EvilIcons"
+                  name="trash"
+                  onPress={() => tripStore.deleteTrip(trip.id)}
+                />
+                <UpdateButton trip={trip} />
+              </>
+            )}
           </StyledCard>
         </StyledContent>
       </ListItem>

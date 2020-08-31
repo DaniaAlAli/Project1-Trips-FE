@@ -28,10 +28,6 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
     }
   );
 
-  // const handleChange = (event) => {
-  //   setTrip({ ...trip, [event.target.name]: event.target.value });
-  // };
-
   const handleSubmit = () => {
     if (oldTrip) {
       tripStore.updateTrip(trip);

@@ -17,11 +17,8 @@ class TripStore {
     }
   };
 
-  // Now we are using dummydata for front end, code commented(13-20) out for when backend is integrated
   createTrip = async (newTrip) => {
     try {
-      // const formData = new FormData();
-      // for (const key in newTrip) formData.append(key, newTrip[key]);
       const res = await instance.post("/trips", newTrip);
       this.trips.push(res.data);
     } catch (error) {

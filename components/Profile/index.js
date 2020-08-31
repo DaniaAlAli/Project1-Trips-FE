@@ -28,25 +28,10 @@ import {
 } from "./styles";
 
 const ProfileList = ({ navigation }) => {
-  // const user2 = authStore.user;
-  // console.log("ProfileList -> user", user2);
-  // const profile = authStore.user.profile;
-  // console.log("ProfileList -> profile", profile);
-
-  // const user = authStore.user.id;
-  // const profile = authStore.user.profile.userId;
-  // console.log("ProfileList -> profilebelongstouser", profile);
-  // console.log("ProfileList -> userhasid", user);
-
-  // console.log("ProfileList -> user", user);
-
   const { user } = authStore;
   const profile = user.profile;
-  // console.log("ProfileList -> profile", profile);
-  // // const trips = tripStore.trips;
-  // // console.log("ProfileList -> trips", trips);
 
-  // // console.log("ProfileList -> user", user);
+  const trips = tripStore.trips.filter((trip) => trip.userId === user.id);
 
   return (
     <SafeAreaView>
@@ -78,7 +63,7 @@ const ProfileList = ({ navigation }) => {
           <Text>Discover</Text>
         </DiscoverButton>
         {/* <UserTripList navigation={navigation} my /> */}
-        <TripList navigation={navigation} myTrips={authStore.myTrips} />
+        <TripList navigation={navigation} trips={trips} myTrips />
       </ScrollView>
     </SafeAreaView>
   );
