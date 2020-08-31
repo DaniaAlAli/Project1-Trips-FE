@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import { Button } from "native-base";
+import { Icon } from "native-base";
 
 export const AddButtonStyled = styled.TouchableOpacity`
   align-self: stretch;
@@ -21,4 +22,9 @@ export const EditProfile = styled(Button)`
   width: 50;
   height: 50;
   border-radius: 50;
+`;
+
+export const SignoutStyledButton = styled(Icon)`
+  margin-left: 20px;
+  color: red;
 `;

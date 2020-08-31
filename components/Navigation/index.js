@@ -9,7 +9,9 @@ import Signup from "../authentication/Signup";
 import TripList from "../TripList/index";
 import TripDetail from "../TripDetail/index";
 import ProfileList from "../Profile";
+import SignoutButton from "../buttons/SignoutButton";
 import Discover from "../../Discover";
+
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -19,8 +21,8 @@ const RootNavigator = () => {
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Discover"
-        component={Discover}
-        options={{ title: "Discover" }}
+        component={TripList}
+        options={{ title: "Discover" }} //   do wee need to insert others for others' trips ?
       />
       <Screen
         name="Trip Detail"
@@ -45,8 +47,8 @@ const RootNavigator = () => {
       <Screen
         name="MyProfile"
         component={ProfileList}
-        options={{ headerShown: false }}
-
+        //options={{ headerShown: false }}
+        options={{ headerLeft: () => <SignoutButton /> }}
         // {({ route }) => {
         //   const { user } = route.params;
         //   return {
