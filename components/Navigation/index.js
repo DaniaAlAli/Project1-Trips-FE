@@ -11,18 +11,29 @@ import TripDetail from "../TripDetail/index";
 import ProfileList from "../Profile";
 import SignoutButton from "../buttons/SignoutButton";
 import Discover from "../../Discover";
-
+import authStore from "../../stores/authStore";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
+  console.log("AUTH", authStore.user);
   return (
     <Navigator initialRouteName="Home">
-      <Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Screen
+        name="MyProfile"
+        component={ProfileList}
+        options={({ route }) => {
+          const { user } = authStore;
+          return {
+            // title: user.username,
+            headerLeft: () => <SignoutButton />,
+          };
+        }}
+      />
       <Screen
         name="Discover"
-        component={TripList}
-        options={{ title: "Discover" }} //   do wee need to insert others for others' trips ?
+        component={Discover}
+        options={{ title: "Discover" }}
       />
       <Screen
         name="Trip Detail"
@@ -34,6 +45,8 @@ const RootNavigator = () => {
           };
         }}
       />
+
+      <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Signin"
         component={Signin}
@@ -43,18 +56,6 @@ const RootNavigator = () => {
         name="Signup"
         component={Signup}
         options={{ headerShown: false }}
-      />
-      <Screen
-        name="MyProfile"
-        component={ProfileList}
-        //options={{ headerShown: false }}
-        options={{ headerLeft: () => <SignoutButton /> }}
-        // {({ route }) => {
-        //   const { user } = route.params;
-        //   return {
-        //     title: user.username,
-        //   };
-        // }}
       />
     </Navigator>
   );
