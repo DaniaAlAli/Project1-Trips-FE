@@ -29,6 +29,8 @@ import {
 
 const ProfileList = ({ navigation }) => {
   const { user } = authStore;
+  if (!user) return <Text>HI</Text>; //LAILA APPROVES THIS
+
   const profile = user.profile;
 
   const trips = tripStore.trips.filter((trip) => trip.userId === user.id);
@@ -62,7 +64,6 @@ const ProfileList = ({ navigation }) => {
         <DiscoverButton block onPress={() => navigation.navigate("Discover")}>
           <Text>Discover</Text>
         </DiscoverButton>
-        {/* <UserTripList navigation={navigation} my /> */}
         <TripList navigation={navigation} trips={trips} myTrips />
       </ScrollView>
     </SafeAreaView>
