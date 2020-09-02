@@ -36,9 +36,7 @@ class AuthStore {
   signout = async (navigation) => {
     delete instance.defaults.headers.common.Authorization;
     await AsyncStorage.removeItem("myToken");
-    // navigation.replace("Home");
     this.user = null;
-    console.log("555");
   };
 
   updateProfile = async (updatedProfile) => {

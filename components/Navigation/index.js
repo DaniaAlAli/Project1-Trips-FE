@@ -16,9 +16,9 @@ import authStore from "../../stores/authStore";
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
-  console.log("AUTH", authStore.user);
   return (
     <Navigator initialRouteName="Home">
+      <Screen name="Home" component={Home} options={{ headerShown: false }} />
 
       <Screen
         name="Discover"
@@ -37,7 +37,6 @@ const RootNavigator = () => {
         }}
       />
 
-      <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="MyProfile"
         component={Profile}
@@ -50,7 +49,6 @@ const RootNavigator = () => {
         }}
       />
 
-      <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Signin"
         component={Signin}

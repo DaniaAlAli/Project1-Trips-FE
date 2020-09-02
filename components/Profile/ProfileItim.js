@@ -4,6 +4,7 @@ import { observer } from "mobx-react";
 import moment from "moment";
 import { Text, Right } from "native-base";
 import EditButton from "../buttons/EditButton";
+import AddButton from "../buttons/AddButton";
 import authStore from "../../stores/authStore";
 
 //Styles
@@ -26,6 +27,7 @@ const ProfileItim = () => {
     <UserInfo>
       <Right>
         <EditButton profile={profile} />
+        <AddButton />
       </Right>
       <ProfileImage
         source={
