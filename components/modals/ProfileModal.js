@@ -26,9 +26,8 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
   });
 
   const handleSubmit = () => {
-    console.log("PROFILEEE", profile);
     authStore.updateProfile(profile);
-    // console.log("STORE", profileStore.updateProfile(profile));
+
     closeModal();
   };
 

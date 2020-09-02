@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import TripModal from "../modals/TripModal";
 
 // //Styles
-import { AddButtonStyled, AddButtonText } from "./styles";
+import { UpdateButtonStyled, UpdateButtonText } from "./styles";
 
 const UpdateButton = ({ trip }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,9 +13,9 @@ const UpdateButton = ({ trip }) => {
 
   return (
     <>
-      <AddButtonStyled onPress={() => setIsOpen(true)}>
-        <AddButtonText>Update</AddButtonText>
-      </AddButtonStyled>
+      <UpdateButtonStyled onPress={() => setIsOpen(true)}>
+        <UpdateButtonText>Update</UpdateButtonText>
+      </UpdateButtonStyled>
       <TripModal isOpen={isOpen} closeModal={closeModal} oldTrip={trip} />
     </>
   );

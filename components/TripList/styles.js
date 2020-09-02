@@ -6,8 +6,8 @@ import { Icon } from "native-base";
 
 export const DeleteTrip = styled(Icon)`
   color: red;
-  padding-top: 20px;
-  padding-right: 20px;
+  padding-left: 70px;
+  flex: 5;
 `;
 
 export const AddButton = styled.TouchableOpacity`
@@ -46,6 +46,7 @@ export const StyledView = styled.View`
   align-items: center;
   justify-content: center;
   padding-left: auto;
+
   padding-right: auto;
 `;
 
@@ -53,4 +54,12 @@ export const CreatedAt = styled.Text`
   color: grey;
   text-align: right;
   margin-right: 10px;
+`;
+export const MyTripStyle = styled.Text`
+  align-items: center;
+  align-self: stretch;
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto;
+  padding: 15px;
 `;

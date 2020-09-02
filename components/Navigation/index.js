@@ -6,11 +6,11 @@ import { observer } from "mobx-react";
 import Home from "../Home";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
-import TripList from "../TripList/index";
 import TripDetail from "../TripDetail/index";
-import ProfileList from "../Profile";
+import Profile from "../Profile";
 import SignoutButton from "../buttons/SignoutButton";
-import Discover from "../../Discover";
+import Discover from "../../Discover/index";
+import OtherProfile from "../Profile/OtherProfile";
 import authStore from "../../stores/authStore";
 
 const { Navigator, Screen } = createStackNavigator();
@@ -19,22 +19,13 @@ const RootNavigator = () => {
   console.log("AUTH", authStore.user);
   return (
     <Navigator initialRouteName="Home">
-      <Screen
-        name="MyProfile"
-        component={ProfileList}
-        options={({ route }) => {
-          const { user } = authStore;
-          return {
-            // title: user.username,
-            headerLeft: () => <SignoutButton />,
-          };
-        }}
-      />
+
       <Screen
         name="Discover"
         component={Discover}
         options={{ title: "Discover" }}
       />
+      <Screen name="Other Profile" component={OtherProfile} />
       <Screen
         name="Trip Detail"
         component={TripDetail}
@@ -42,6 +33,19 @@ const RootNavigator = () => {
           const { trip } = route.params;
           return {
             title: trip.destination,
+          };
+        }}
+      />
+
+      <Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Screen
+        name="MyProfile"
+        component={Profile}
+        options={({ route }) => {
+          const { user } = route.params;
+          return {
+            title: user.username,
+            headerLeft: () => <SignoutButton />,
           };
         }}
       />

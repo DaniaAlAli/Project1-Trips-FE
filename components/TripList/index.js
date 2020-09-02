@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { Content, List, Spinner, Text, ListItem } from "native-base";
+import { Content, List, Spinner } from "native-base";
 
 //Components
 import TripItem from "./TripItem";
@@ -8,7 +8,6 @@ import AddButton from "../buttons/AddButton";
 
 //Stores
 import tripStore from "../../stores/tripStore";
-import authStore from "../../stores/authStore";
 
 const TripList = ({ navigation, trips, myTrips }) => {
   if (tripStore.loading) return <Spinner />;

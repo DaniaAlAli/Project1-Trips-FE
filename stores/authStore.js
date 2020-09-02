@@ -5,7 +5,6 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 //Decode
 import decode from "jwt-decode";
-import tripStore from "./tripStore";
 
 class AuthStore {
   user = null;
@@ -20,8 +19,6 @@ class AuthStore {
     try {
       const res = await instance.post("/signup", userData);
       await this.setUser(res.data.token);
-
-      console.log(res.data.token);
     } catch (error) {
       console.log("error:", error);
     }
@@ -31,8 +28,6 @@ class AuthStore {
     try {
       const res = await instance.post("/signin", userData);
       await this.setUser(res.data.token);
-
-      console.log(res.data.token);
     } catch (error) {
       console.log("error:", error);
     }
@@ -44,6 +39,16 @@ class AuthStore {
     // navigation.replace("Home");
     this.user = null;
     console.log("555");
+  };
+
+  updateProfile = async (updatedProfile) => {
+    try {
+      await instance.put(`/profile`, updatedProfile);
+      const profile = this.user.profile;
+      for (const key in updatedProfile) profile[key] = updatedProfile[key];
+    } catch (error) {
+      console.log("error:", error);
+    }
   };
 
   getUserById = (userId) => {
