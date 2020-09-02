@@ -1,24 +1,20 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import { CardItem, Left, Right, ListItem, Text } from "native-base";
+import { CardItem, Left, Right, ListItem, Text, View } from "native-base";
 import moment from "moment";
 
 import {
-  TripItemStyled,
   StyledCard,
   StyledContent,
   StyledImage,
   DeleteTrip,
-  MyTripStyle,
   CreatedAt,
+  ButtonWrapper,
 } from "./styles";
 
 // Stores
 import tripStore from "../../stores/tripStore";
 import UpdateButton from "../buttons/UpdateButton";
-import authStore from "../../stores/authStore";
-import profileStore from "../../stores/profileStore";
-import Profile from "../Profile";
 
 const TripItem = ({ trip, navigation, myTrips }) => {
   return (
@@ -26,8 +22,6 @@ const TripItem = ({ trip, navigation, myTrips }) => {
       <ListItem>
         <StyledContent>
           <StyledCard>
-            <Left></Left>
-            <Left></Left>
             <CreatedAt>{moment(trip.createdAt).fromNow()}</CreatedAt>
             {!myTrips && (
               <Text
@@ -63,19 +57,17 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                   {trip.destination}
                 </Text>
               </Left>
-              <Right>
-                <Text>{trip.details}</Text>
-              </Right>
             </CardItem>
             {myTrips && (
-              <>
+              <ButtonWrapper>
                 <UpdateButton trip={trip} />
+
                 <DeleteTrip
                   type="EvilIcons"
                   name="trash"
                   onPress={() => tripStore.deleteTrip(trip.id)}
                 />
-              </>
+              </ButtonWrapper>
             )}
           </StyledCard>
         </StyledContent>

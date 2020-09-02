@@ -25,8 +25,9 @@ export const AddButtonText = styled.Text`
 `;
 export const UpdateButtonText = styled.Text`
   font-weight: bold;
-  padding-bottom: 0px;
-  padding-left: 5px;
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
 `;
 
 export const EditProfile = styled(Button)`

@@ -6,12 +6,11 @@ import { observer } from "mobx-react";
 import Home from "../Home";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
-import TripDetail from "../TripDetail/index";
+import TripDetail from "../TripDetail";
 import Profile from "../Profile";
 import SignoutButton from "../buttons/SignoutButton";
-import Discover from "../../Discover/index";
+import Discover from "../../Discover/";
 import OtherProfile from "../Profile/OtherProfile";
-import authStore from "../../stores/authStore";
 
 const { Navigator, Screen } = createStackNavigator();
 
