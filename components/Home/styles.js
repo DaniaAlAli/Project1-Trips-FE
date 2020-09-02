@@ -1,8 +1,10 @@
+// no need for this comment
 //Styled components
 import styled from "styled-components/native";
 import { Button, Text } from "native-base";
-import { Font } from "expo";
+import { Font } from "expo"; // unused import
 
+// remove this
 // constructor(){
 //   super()
 //   this.state={

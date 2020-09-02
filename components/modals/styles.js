@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-
 import { Icon } from "native-base";
 
 export const CloseButtonStyled = styled(Icon)`

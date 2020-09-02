@@ -22,7 +22,7 @@ import {
 
 const ProfileItim = () => {
   const { user } = authStore;
-  const profile = user.profile;
+  const { profile } = user;
   return (
     <UserInfo>
       <Right>

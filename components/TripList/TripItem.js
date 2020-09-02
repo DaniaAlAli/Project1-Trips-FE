@@ -4,21 +4,21 @@ import { CardItem, Left, Right, ListItem, Text } from "native-base";
 import moment from "moment";
 
 import {
-  TripItemStyled,
+  TripItemStyled, // unused import
   StyledCard,
   StyledContent,
   StyledImage,
   DeleteTrip,
-  MyTripStyle,
+  MyTripStyle, // unused import
   CreatedAt,
 } from "./styles";
 
 // Stores
 import tripStore from "../../stores/tripStore";
 import UpdateButton from "../buttons/UpdateButton";
-import authStore from "../../stores/authStore";
-import profileStore from "../../stores/profileStore";
-import Profile from "../Profile";
+import authStore from "../../stores/authStore"; // unused import
+import profileStore from "../../stores/profileStore"; // unused import
+import Profile from "../Profile"; // unused import
 
 const TripItem = ({ trip, navigation, myTrips }) => {
   return (
@@ -26,6 +26,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
       <ListItem>
         <StyledContent>
           <StyledCard>
+            {/* are these necessary? */}
             <Left></Left>
             <Left></Left>
             <CreatedAt>{moment(trip.createdAt).fromNow()}</CreatedAt>
@@ -47,9 +48,9 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                   trip.image
                     ? { uri: trip.image }
                     : {
-                        uri:
-                          "https://images.unsplash.com/photo-1564689510742-4e9c7584181d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
-                      }
+                      uri:
+                        "https://images.unsplash.com/photo-1564689510742-4e9c7584181d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+                    }
                 }
               />
             </CardItem>

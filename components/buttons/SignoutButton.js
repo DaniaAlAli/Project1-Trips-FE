@@ -13,9 +13,9 @@ const SignoutButton = () => {
   const submit = async () => {
 
     await authStore.signout(navigation);
-    console.log("333");
+    console.log("333"); // remove console logs before pushing
     navigation.replace("Home"); // put a condition
-    console.log("444");
+    console.log("444"); // remove console logs before pushing
   };
 
   return (

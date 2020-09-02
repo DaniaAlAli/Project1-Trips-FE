@@ -26,6 +26,7 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
   });
 
   const handleSubmit = () => {
+    await?
     authStore.updateProfile(profile);
 
     closeModal();

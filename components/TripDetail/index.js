@@ -10,10 +10,11 @@ import {
   View,
 } from "native-base";
 
+// there are no component imports here
 //Components
 
 //Stores
-import tripStore from "../../stores/tripStore";
+import tripStore from "../../stores/tripStore"; // unused import
 
 //Styles
 
@@ -27,7 +28,7 @@ import {
   DetailButtonStyled,
   StyledImage,
 } from "./styles";
-import UpdateButton from "../buttons/UpdateButton";
+import UpdateButton from "../buttons/UpdateButton"; // unused import
 
 const TripDetail = ({ route }) => {
   const { trip } = route.params;
@@ -43,9 +44,9 @@ const TripDetail = ({ route }) => {
                   trip.image
                     ? { uri: trip.image }
                     : {
-                        uri:
-                          "https://images.unsplash.com/photo-1564689510742-4e9c7584181d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
-                      }
+                      uri:
+                        "https://images.unsplash.com/photo-1564689510742-4e9c7584181d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+                    }
                 }
               />
               <DetailDiv>
