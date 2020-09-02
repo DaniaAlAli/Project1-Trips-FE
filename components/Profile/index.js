@@ -12,6 +12,7 @@ import ProfileItim from "./ProfileItim";
 import authStore from "../../stores/authStore";
 import tripStore from "../../stores/tripStore";
 
+// a double comment?
 // //Styles
 import { DiscoverButton } from "./styles";
 
@@ -24,6 +25,7 @@ const Profile = ({ navigation }) => {
   return (
     <SafeAreaView>
       <ScrollView>
+        {/* Itim? or Item? spelling is wrong. */}
         <ProfileItim navigation={navigation} />
         <TripList navigation={navigation} trips={trips} myTrips />
         <DiscoverButton block onPress={() => navigation.navigate("Discover")}>

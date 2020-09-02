@@ -5,7 +5,7 @@ import { Modal } from "react-native";
 //Stores
 
 import tripStore from "../../stores/tripStore";
-import authStore from "../../stores/authStore";
+import authStore from "../../stores/authStore"; // unused import
 
 //Styling
 import {
@@ -62,6 +62,7 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
           />
 
           <ModalTitle>Where did you go?</ModalTitle>
+          {/* remove this commented line if youre not gonna use it */}
           {/* <NameField>Name: {tripStore.trip.profileName}</NameField> */}
           <ModalTextInput
             onChangeText={(country) => setTrip({ ...trip, country })}

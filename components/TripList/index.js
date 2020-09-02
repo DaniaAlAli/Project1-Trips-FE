@@ -6,7 +6,7 @@ import { MyTripStyle } from "./styles";
 
 //Components
 import TripItem from "./TripItem";
-import AddButton from "../buttons/AddButton";
+import AddButton from "../buttons/AddButton"; // unused import
 
 //Stores
 import tripStore from "../../stores/tripStore";
