@@ -6,13 +6,13 @@ import { Text, Spinner } from "native-base";
 
 //Components
 import TripList from "../TripList";
-import ProfileItim from "./ProfileItim";
+import ProfileItem from "./ProfileItem";
 
 // Store
 import authStore from "../../stores/authStore";
 import tripStore from "../../stores/tripStore";
 
-// //Styles
+// Styles
 import { DiscoverButton } from "./styles";
 
 const Profile = ({ navigation }) => {
@@ -24,7 +24,7 @@ const Profile = ({ navigation }) => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <ProfileItim navigation={navigation} />
+        <ProfileItem navigation={navigation} />
         <TripList navigation={navigation} trips={trips} myTrips />
         <DiscoverButton block onPress={() => navigation.navigate("Discover")}>
           <Text>Discover</Text>

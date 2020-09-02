@@ -10,13 +10,7 @@ import {
   View,
 } from "native-base";
 
-//Components
-
-//Stores
-import tripStore from "../../stores/tripStore";
-
 //Styles
-
 import {
   CountryButtonStyled,
   DateButtonStyled,
@@ -27,7 +21,6 @@ import {
   DetailButtonStyled,
   StyledImage,
 } from "./styles";
-import UpdateButton from "../buttons/UpdateButton";
 
 const TripDetail = ({ route }) => {
   const { trip } = route.params;

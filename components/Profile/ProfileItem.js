@@ -20,9 +20,9 @@ import {
   DiscoverButton,
 } from "./styles";
 
-const ProfileItim = () => {
+const ProfileItem = () => {
   const { user } = authStore;
-  const profile = user.profile;
+  const { profile } = user;
   return (
     <UserInfo>
       <Right>
@@ -49,4 +49,4 @@ const ProfileItim = () => {
   );
 };
 
-export default observer(ProfileItim);
+export default observer(ProfileItem);

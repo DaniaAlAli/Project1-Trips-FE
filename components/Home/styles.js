@@ -1,14 +1,6 @@
 //Styled components
 import styled from "styled-components/native";
 import { Button, Text } from "native-base";
-import { Font } from "expo";
-
-// constructor(){
-//   super()
-//   this.state={
-//     fontLoaded: false
-//   }
-// }
 
 export const BackgroundImage = styled.ImageBackground`
   width: 100%;
@@ -39,7 +31,7 @@ export const SignUpButtonStyled = styled(Button)`
 `;
 
 export const Title = styled.Text`
-  margin-bottom: 180px;
+  margin-bottom: 199px;
   font-size: 35px;
   color: white;
   font-weight: bold;
