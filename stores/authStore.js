@@ -33,10 +33,12 @@ class AuthStore {
     }
   };
 
-  signout = async () => {
+  signout = async (navigation) => {
     delete instance.defaults.headers.common.Authorization;
     await AsyncStorage.removeItem("myToken");
+    // navigation.replace("Home");
     this.user = null;
+    console.log("555");
   };
 
   updateProfile = async (updatedProfile) => {
@@ -62,6 +64,19 @@ class AuthStore {
       } else {
         this.signout();
       }
+    }
+  };
+
+  updateProfile = async (updatedProfile) => {
+    console.log("UPDATEE", updatedProfile);
+    try {
+      await instance.put("/profile", updatedProfile);
+
+      const profile = this.user.profile;
+
+      for (const key in updatedProfile) profile[key] = updatedProfile[key];
+    } catch (error) {
+      console.log("error:", error);
     }
   };
 }

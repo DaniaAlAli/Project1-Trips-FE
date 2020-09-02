@@ -11,12 +11,15 @@ import Profile from "../Profile";
 import SignoutButton from "../buttons/SignoutButton";
 import Discover from "../../Discover/index";
 import OtherProfile from "../Profile/OtherProfile";
+import authStore from "../../stores/authStore";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
+  console.log("AUTH", authStore.user);
   return (
     <Navigator initialRouteName="Home">
+
       <Screen
         name="Discover"
         component={Discover}
@@ -33,6 +36,8 @@ const RootNavigator = () => {
           };
         }}
       />
+
+      <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="MyProfile"
         component={Profile}

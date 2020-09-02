@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import { Modal } from "react-native";
-import { Text } from "native-base";
 
 //Stores
 
@@ -28,6 +27,7 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
 
   const handleSubmit = () => {
     authStore.updateProfile(profile);
+
     closeModal();
   };
 

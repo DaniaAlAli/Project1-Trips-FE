@@ -11,8 +11,11 @@ import authStore from "../../stores/authStore";
 const SignoutButton = () => {
   const navigation = useNavigation();
   const submit = async () => {
-    await authStore.signout();
-    navigation.navigate("Home");
+
+    await authStore.signout(navigation);
+    console.log("333");
+    navigation.replace("Home"); // put a condition
+    console.log("444");
   };
 
   return (

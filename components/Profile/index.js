@@ -32,6 +32,9 @@ import profileStore from "../../stores/profileStore";
 const Profile = ({ navigation }) => {
   const { user } = authStore;
   if (!user) return <Spinner />;
+
+
+ 
   const trips = tripStore.trips.filter((trip) => trip.userId === user.id);
 
   return (
@@ -42,6 +45,7 @@ const Profile = ({ navigation }) => {
         <DiscoverButton block onPress={() => navigation.navigate("Discover")}>
           <Text>Discover</Text>
         </DiscoverButton>
+        <TripList navigation={navigation} trips={trips} myTrips />
       </ScrollView>
     </SafeAreaView>
   );

@@ -14,6 +14,7 @@ class ProfileStore {
       console.log("ProfileStore -> fetchUser -> error", error);
     }
   };
+
 }
 
 decorate(ProfileStore, {
