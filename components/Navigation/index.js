@@ -6,24 +6,23 @@ import { observer } from "mobx-react";
 import Home from "../Home";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
-import TripList from "../TripList/index";
 import TripDetail from "../TripDetail/index";
-import ProfileList from "../Profile";
+import Profile from "../Profile";
 import SignoutButton from "../buttons/SignoutButton";
-import Discover from "../../Discover";
-
+import Discover from "../../Discover/index";
+import OtherProfile from "../Profile/OtherProfile";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <Navigator initialRouteName="Home">
-      <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Discover"
-        component={TripList}
-        options={{ title: "Discover" }} //   do wee need to insert others for others' trips ?
+        component={Discover}
+        options={{ title: "Discover" }}
       />
+      <Screen name="Other Profile" component={OtherProfile} />
       <Screen
         name="Trip Detail"
         component={TripDetail}
@@ -35,6 +34,19 @@ const RootNavigator = () => {
         }}
       />
       <Screen
+        name="MyProfile"
+        component={Profile}
+        options={({ route }) => {
+          const { user } = route.params;
+          return {
+            title: user.username,
+            headerLeft: () => <SignoutButton />,
+          };
+        }}
+      />
+
+      <Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Screen
         name="Signin"
         component={Signin}
         options={{ headerShown: false }}
@@ -43,18 +55,6 @@ const RootNavigator = () => {
         name="Signup"
         component={Signup}
         options={{ headerShown: false }}
-      />
-      <Screen
-        name="MyProfile"
-        component={ProfileList}
-        //options={{ headerShown: false }}
-        options={{ headerLeft: () => <SignoutButton /> }}
-        // {({ route }) => {
-        //   const { user } = route.params;
-        //   return {
-        //     title: user.username,
-        //   };
-        // }}
       />
     </Navigator>
   );

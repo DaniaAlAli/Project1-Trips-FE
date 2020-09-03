@@ -16,7 +16,7 @@ const Discover = ({ navigation }) => {
 
   return (
     <Content>
-      <TripList navigation={navigation} trips={trips} />
+      <TripList trips={trips} navigation={navigation} />
     </Content>
   );
 };

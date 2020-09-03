@@ -5,6 +5,7 @@ import { Modal } from "react-native";
 //Stores
 
 import tripStore from "../../stores/tripStore";
+import authStore from "../../stores/authStore";
 
 //Styling
 import {
@@ -15,6 +16,7 @@ import {
   ModalTitle,
   ModalTextInput,
   ModalView,
+  NameField,
 } from "./styles";
 
 const TripModal = ({ closeModal, isOpen, oldTrip }) => {
@@ -58,7 +60,9 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
             type="AntDesign"
             name="closecircleo"
           />
+
           <ModalTitle>Where did you go?</ModalTitle>
+          {/* <NameField>Name: {tripStore.trip.profileName}</NameField> */}
           <ModalTextInput
             onChangeText={(country) => setTrip({ ...trip, country })}
             placeholder="Country"

@@ -5,24 +5,22 @@ class ProfileStore {
   profiles = [];
   loading = true;
 
-  updateProfile = async (updatedProfile) => {
+  fetchProfiles = async () => {
     try {
-      await instance.put(`/profile/${updatedProfile.id}`, updatedProfile);
-      const profile = this.profiles.find(
-        (profile) => profile.id === updatedProfile.id
-      );
-      for (const key in updatedProfile) profile[key] = updatedProfile[key];
+      const response = await instance.get("/profiles");
+      this.profiles = response.data;
+      this.loading = false;
     } catch (error) {
-      console.log("error:", error);
+      console.log("ProfileStore -> fetchUser -> error", error);
     }
   };
 }
 
 decorate(ProfileStore, {
-  profile: observable,
+  profiles: observable,
   loading: observable,
 });
 
 const profileStore = new ProfileStore();
-
+profileStore.fetchProfiles();
 export default profileStore;

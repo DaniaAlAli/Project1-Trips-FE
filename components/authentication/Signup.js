@@ -62,7 +62,7 @@ const Signup = ({ navigation }) => {
           />
         </Item>
 
-        <Item floatingLabel last>
+        <Item floatingLabel>
           <Label style={{ color: "white" }}>Password</Label>
           <Input
             secureTextEntry={true}

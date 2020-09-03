@@ -36,7 +36,7 @@ const Signin = ({ navigation }) => {
           />
         </Item>
 
-        <Item floatingLabel last>
+        <Item floatingLabel>
           <Label style={{ color: "white" }}>Password</Label>
           <Input
             secureTextEntry={true}
@@ -52,7 +52,7 @@ const Signin = ({ navigation }) => {
       </SignUpButtonStyled>
 
       <CreateNewAccountStyled primary>
-        <Text onPress={() => navigation.navigate("Signup")}>Register</Text>
+        <Text onPress={() => navigation.navigate("Signup")}>New user?</Text>
       </CreateNewAccountStyled>
     </BackgroundImage>
   );

@@ -30,9 +30,6 @@ const Home = ({ navigation }) => {
       >
         <Text>{authStore.user ? "Sign out" : "Sign in"}</Text>
       </SignInButtonStyled>
-      <SignUpButtonStyled onPress={() => navigation.navigate("Signup")}>
-        <Text>Register</Text>
-      </SignUpButtonStyled>
     </BackgroundImage>
   );
 };
