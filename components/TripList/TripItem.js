@@ -21,13 +21,8 @@ import profileStore from "../../stores/profileStore";
 import Profile from "../Profile";
 
 const TripItem = ({ trip, navigation, myTrips }) => {
-  console.log("TripItem -> trip", trip);
-  const { user } = authStore;
-  const profile = user.profile;
-
   return (
     <>
-      {myTrips && <MyTripStyle>Welcome To My Trips!</MyTripStyle>}
       <ListItem>
         <StyledContent>
           <StyledCard>
@@ -37,10 +32,12 @@ const TripItem = ({ trip, navigation, myTrips }) => {
             {!myTrips && (
               <Text
                 onPress={() =>
-                  navigation.navigate("Other Profile", { userId: trip.userId })
+                  navigation.navigate("Other Profile", {
+                    userId: trip.userId,
+                  })
                 }
               >
-                {user.username}
+                {trip.profileName}
               </Text>
             )}
 
