@@ -55,6 +55,8 @@ const OtherProfile = ({ route, navigation }) => {
             </Joined>
             <Bio>{otherProfile.profile.bio}</Bio>
           </UserInfo>
+          <Text>All Trips: {trips.length}</Text>
+
           <TripList trips={trips} navigation={navigation} />
         </ScrollView>
       </SafeAreaView>

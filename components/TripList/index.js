@@ -25,8 +25,6 @@ const TripList = ({ navigation, trips, myTrips }) => {
 
   return (
     <Content>
-      {myTrips && <MyTripStyle>Welcome To My Trips!</MyTripStyle>}
-
       <List>{tripList}</List>
     </Content>
   );

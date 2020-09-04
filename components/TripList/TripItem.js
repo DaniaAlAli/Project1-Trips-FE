@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import { CardItem, Left, Right, ListItem, Text } from "native-base";
+import {
+  CardItem,
+  Left,
+  Right,
+  ListItem,
+  Text,
+  Icon,
+  Button,
+} from "native-base";
 import moment from "moment";
 
 import {
@@ -19,8 +27,10 @@ import UpdateButton from "../buttons/UpdateButton";
 import authStore from "../../stores/authStore";
 import profileStore from "../../stores/profileStore";
 import Profile from "../Profile";
+import { color } from "react-native-reanimated";
 
 const TripItem = ({ trip, navigation, myTrips }) => {
+  console.log("TripItem -> trip", trip);
   return (
     <>
       <ListItem>
@@ -67,6 +77,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 <Text>{trip.details}</Text>
               </Right>
             </CardItem>
+
             {myTrips && (
               <>
                 <UpdateButton trip={trip} />
@@ -74,6 +85,13 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                   type="EvilIcons"
                   name="trash"
                   onPress={() => tripStore.deleteTrip(trip.id)}
+                />
+
+                <Icon
+                  type="AntDesign"
+                  name={trip.favorite ? "star" : "staro"}
+                  style={{ color: "#ffbe0b" }}
+                  onPress={() => tripStore.updateFavoritetrip(trip)}
                 />
               </>
             )}

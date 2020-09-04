@@ -31,6 +31,8 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
     closeModal();
   };
 
+  const { user } = authStore;
+
   return (
     <Modal
       transparent={true}
@@ -49,7 +51,12 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
           <NameField>
             Name: {authStore.user.firstName} {authStore.user.lastName}
           </NameField>
-          <NameField>Username: @{authStore.user.username}</NameField>
+          <ModalTextInput
+            onChangeText={(username) => setProfile({ ...user, username })}
+            placeholder="username"
+            placeholderTextColor="#000000"
+            value={user.username}
+          />
           <ModalTextInput
             multiline={true}
             onChangeText={(bio) => setProfile({ ...profile, bio })}

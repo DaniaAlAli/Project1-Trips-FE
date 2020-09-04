@@ -40,6 +40,28 @@ class TripStore {
     }
   };
 
+  updateFavoritetrip = async (updatedFavoritetrip) => {
+    try {
+      await instance.put(`/trips/${updatedFavoritetrip.id}`, {
+        favorite: false,
+      });
+      console.log(
+        "TripStore -> updateFavoritetrip -> updatedFavoritetrip.favorite before",
+        updatedFavoritetrip.favorite
+      );
+      const favoriteTrip = this.trips.find(
+        (trip) => trip.id === updatedFavoritetrip.id
+      );
+      favoriteTrip.favorite = !updatedFavoritetrip.favorite;
+      console.log(
+        "TripStore -> updateFavoritetrip -> updatedFavoritetrip.favorite after",
+        updatedFavoritetrip.favorite
+      );
+    } catch (error) {
+      console.log("TripStore -> updateFavoritetrip -> error", error);
+    }
+  };
+
   deleteTrip = async (TripId) => {
     try {
       await instance.delete(`/trips/${TripId}`);
