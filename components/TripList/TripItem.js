@@ -41,7 +41,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
             {!myTrips && (
               <Text
                 onPress={() =>
-                  navigation.navigate("Other Profile", {
+                  navigation.push("Profile", {
                     userId: trip.userId,
                     trip: trip,
                   })

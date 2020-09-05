@@ -10,7 +10,6 @@ import TripDetail from "../TripDetail/index";
 import Profile from "../Profile";
 import SignoutButton from "../buttons/SignoutButton";
 import Discover from "../../Discover/index";
-import OtherProfile from "../Profile/OtherProfile";
 import authStore from "../../stores/authStore";
 
 const { Navigator, Screen } = createStackNavigator();
@@ -25,16 +24,7 @@ const RootNavigator = () => {
         component={Discover}
         options={{ title: "Discover" }}
       />
-      <Screen
-        name="Other Profile"
-        component={OtherProfile}
-        options={({ route }) => {
-          const { trip } = route.params;
-          return {
-            title: trip.profileName,
-          };
-        }}
-      />
+
       <Screen
         name="Trip Detail"
         component={TripDetail}
@@ -47,14 +37,10 @@ const RootNavigator = () => {
       />
 
       <Screen
-        name="MyProfile"
+        name="Profile"
         component={Profile}
-        options={({ route }) => {
-          const { user } = route.params;
-          return {
-            title: user.username,
-            headerLeft: () => <SignoutButton />,
-          };
+        options={{
+          headerShown: false,
         }}
       />
 

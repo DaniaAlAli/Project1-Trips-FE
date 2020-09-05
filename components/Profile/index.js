@@ -2,33 +2,22 @@ import React from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native";
 import { observer } from "mobx-react";
-import EditButton from "../buttons/EditButton";
-import AddButton from "../buttons/AddButton";
 import moment from "moment";
-
-import {
-  Text,
-  Spinner,
-  CardItem,
-  Left,
-  Right,
-  ListItem,
-  Icon,
-  Button,
-} from "native-base";
 
 //Components
 import TripList from "../TripList";
+import EditButton from "../buttons/EditButton";
+import AddButton from "../buttons/AddButton";
 
 // Store
 import authStore from "../../stores/authStore";
 import tripStore from "../../stores/tripStore";
+import profileStore from "../../stores/profileStore";
 
-// //Styles
+//Styles
 import {
   MyTripStyle,
   FavoriteTripTitle,
-  NumOfTrip,
   UserInfo,
   Bio,
   Joined,
@@ -40,12 +29,18 @@ import {
   DiscoverButton,
 } from "./styles";
 
-const Profile = ({ navigation }) => {
-  const { user } = authStore;
-  const profile = user.profile;
+import { Text, Spinner, Right, Left } from "native-base";
 
-  if (!user) return <Spinner />;
-
+const Profile = ({ route, navigation }) => {
+  const { userId } = route.params;
+  let user;
+  if (userId) {
+    user = profileStore.profiles.find((user) => user.id === userId);
+  } else {
+    user = authStore.user;
+    if (!user) return <Spinner />;
+  }
+  const { profile } = user;
   const trips = tripStore.trips.filter(
     (trip) => trip.userId === user.id && !trip.favorited
   );
@@ -58,10 +53,12 @@ const Profile = ({ navigation }) => {
     <SafeAreaView>
       <ScrollView>
         <UserInfo>
-          <Right>
-            <EditButton profile={profile} />
-            <AddButton />
-          </Right>
+          {!userId && (
+            <Right>
+              <EditButton profile={profile} />
+              <AddButton />
+            </Right>
+          )}
           <ProfileImage
             source={
               profile.image ?? {
@@ -86,13 +83,13 @@ const Profile = ({ navigation }) => {
             Favorite Trips ! {favoritedTrips.length}
           </FavoriteTripTitle>
         )}
-        <TripList trips={favoritedTrips} myTrips />
+        <TripList trips={favoritedTrips} myTrips={!userId} />
         {trips.length !== 0 && (
           <MyTripStyle>Welcome To My Trips ! {trips.length} </MyTripStyle>
         )}
-        <TripList navigation={navigation} trips={trips} myTrips />
+        <TripList navigation={navigation} trips={trips} myTrips={!userId} />
         <DiscoverButton block onPress={() => navigation.navigate("Discover")}>
-          <Text>Discover</Text>
+          <Text>{!userId ? "Discover" : "< All trips"}</Text>
         </DiscoverButton>
       </ScrollView>
     </SafeAreaView>
