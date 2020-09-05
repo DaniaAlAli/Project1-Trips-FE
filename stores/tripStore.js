@@ -43,19 +43,19 @@ class TripStore {
   updateFavoritetrip = async (updatedFavoritetrip) => {
     try {
       await instance.put(`/trips/${updatedFavoritetrip.id}`, {
-        favorite: false,
+        favorited: !updatedFavoritetrip.favorited,
       });
       console.log(
         "TripStore -> updateFavoritetrip -> updatedFavoritetrip.favorite before",
-        updatedFavoritetrip.favorite
+        updatedFavoritetrip.favorited
       );
       const favoriteTrip = this.trips.find(
         (trip) => trip.id === updatedFavoritetrip.id
       );
-      favoriteTrip.favorite = !updatedFavoritetrip.favorite;
+      favoriteTrip.favorited = !updatedFavoritetrip.favorited;
       console.log(
         "TripStore -> updateFavoritetrip -> updatedFavoritetrip.favorite after",
-        updatedFavoritetrip.favorite
+        updatedFavoritetrip.favorited
       );
     } catch (error) {
       console.log("TripStore -> updateFavoritetrip -> error", error);

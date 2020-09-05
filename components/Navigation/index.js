@@ -25,7 +25,16 @@ const RootNavigator = () => {
         component={Discover}
         options={{ title: "Discover" }}
       />
-      <Screen name="Other Profile" component={OtherProfile} />
+      <Screen
+        name="Other Profile"
+        component={OtherProfile}
+        options={({ route }) => {
+          const { trip } = route.params;
+          return {
+            title: trip.profileName,
+          };
+        }}
+      />
       <Screen
         name="Trip Detail"
         component={TripDetail}

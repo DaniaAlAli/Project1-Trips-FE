@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { Right, Spinner } from "native-base";
+import { Right, Spinner, Text } from "native-base";
 import moment from "moment";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native";
@@ -15,6 +15,8 @@ import {
   ProfileImage,
   UserInfo,
   UserName,
+  NumOfTrip,
+  MyTripStyle,
 } from "./styles";
 
 //Stores
@@ -22,13 +24,17 @@ import authStore from "../../stores/authStore";
 import profileStore from "../../stores/profileStore";
 import TripList from "../TripList";
 import tripStore from "../../stores/tripStore";
+import MyFavtrip from "./MyFavtrip";
+import OtherFavtrip from "./OtherFavtrip";
 
 const OtherProfile = ({ route, navigation }) => {
   if (!authStore.user) return <Spinner />;
   const { userId } = route.params;
 
   const otherProfile = profileStore.profiles.find((user) => user.id === userId);
-  const trips = tripStore.trips.filter((trip) => trip.userId === userId);
+  const trips = tripStore.trips.filter(
+    (trip) => trip.userId === userId && !trip.favorited
+  );
 
   return (
     <>
@@ -55,9 +61,11 @@ const OtherProfile = ({ route, navigation }) => {
             </Joined>
             <Bio>{otherProfile.profile.bio}</Bio>
           </UserInfo>
-          <Text>All Trips: {trips.length}</Text>
-
+          {trips.length !== 0 && (
+            <MyTripStyle>Welcome To My Trips! {trips.length}</MyTripStyle>
+          )}
           <TripList trips={trips} navigation={navigation} />
+          <OtherFavtrip userId={userId} />
         </ScrollView>
       </SafeAreaView>
     </>

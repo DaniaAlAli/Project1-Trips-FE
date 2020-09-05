@@ -30,7 +30,6 @@ import Profile from "../Profile";
 import { color } from "react-native-reanimated";
 
 const TripItem = ({ trip, navigation, myTrips }) => {
-  console.log("TripItem -> trip", trip);
   return (
     <>
       <ListItem>
@@ -44,13 +43,13 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 onPress={() =>
                   navigation.navigate("Other Profile", {
                     userId: trip.userId,
+                    trip: trip,
                   })
                 }
               >
                 {trip.profileName}
               </Text>
             )}
-
             <CardItem cardBody>
               <StyledImage
                 source={
@@ -77,7 +76,6 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 <Text>{trip.details}</Text>
               </Right>
             </CardItem>
-
             {myTrips && (
               <>
                 <UpdateButton trip={trip} />
@@ -86,15 +84,14 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                   name="trash"
                   onPress={() => tripStore.deleteTrip(trip.id)}
                 />
-
-                <Icon
-                  type="AntDesign"
-                  name={trip.favorite ? "star" : "staro"}
-                  style={{ color: "#ffbe0b" }}
-                  onPress={() => tripStore.updateFavoritetrip(trip)}
-                />
               </>
             )}
+            <Icon
+              type="AntDesign"
+              name={trip.favorited ? "star" : "staro"}
+              style={{ color: "#ffbe0b" }}
+              onPress={() => tripStore.updateFavoritetrip(trip)}
+            />
           </StyledCard>
         </StyledContent>
       </ListItem>
