@@ -61,11 +61,3 @@ export const CreatedAt = styled.Text`
   text-align: right;
   margin-right: 10px;
 `;
-export const MyTripStyle = styled.Text`
-  align-items: center;
-  align-self: stretch;
-  font-weight: bold;
-  font-size: 20px;
-  margin: auto;
-  padding: 15px;
-`;

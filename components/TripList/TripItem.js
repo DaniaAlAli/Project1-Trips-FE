@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import { CardItem, Left, Right, ListItem, Text, View } from "native-base";
 import moment from "moment";
+
+// Styles
+import {
+  CardItem,
+  Left,
+  Right,
+  ListItem,
+  Text,
+  Icon,
+} from "native-base";
+
+import { color } from "react-native-reanimated";
 
 import {
   StyledCard,
@@ -9,12 +20,17 @@ import {
   StyledImage,
   DeleteTrip,
   CreatedAt,
-  ButtonWrapper,
 } from "./styles";
 
 // Stores
 import tripStore from "../../stores/tripStore";
+import authStore from "../../stores/authStore";
+
+// Components
 import UpdateButton from "../buttons/UpdateButton";
+import Profile from "../Profile";
+
+
 
 const TripItem = ({ trip, navigation, myTrips }) => {
   return (
@@ -26,15 +42,15 @@ const TripItem = ({ trip, navigation, myTrips }) => {
             {!myTrips && (
               <Text
                 onPress={() =>
-                  navigation.navigate("Other Profile", {
+                  navigation.push("Profile", {
                     userId: trip.userId,
+                    trip: trip,
                   })
                 }
               >
                 {trip.profileName}
               </Text>
             )}
-
             <CardItem cardBody>
               <StyledImage
                 source={
@@ -69,6 +85,13 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 />
               </ButtonWrapper>
             )}
+            <Icon
+              type="AntDesign"
+              name={trip.favorited ? "star" : "staro"}
+              style={{ color: "#ffbe0b" }}
+              // permissions
+              onPress={() => tripStore.updateFavoritetrip(trip)}
+            />
           </StyledCard>
         </StyledContent>
       </ListItem>

@@ -24,7 +24,7 @@ const Signup = ({ navigation }) => {
 
   const handleSubmit = async () => {
     await authStore.signup(user);
-    if (authStore.user) navigation.navigate("MyProfile", { user: user });
+    if (authStore.user) navigation.navigate("Profile", { user: user });
   };
 
   return (

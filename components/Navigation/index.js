@@ -9,8 +9,9 @@ import Signup from "../authentication/Signup";
 import TripDetail from "../TripDetail";
 import Profile from "../Profile";
 import SignoutButton from "../buttons/SignoutButton";
-import Discover from "../../Discover/";
-import OtherProfile from "../Profile/OtherProfile";
+import Discover from "../../Discover/index";
+import authStore from "../../stores/authStore";
+
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -24,7 +25,7 @@ const RootNavigator = () => {
         component={Discover}
         options={{ title: "Discover" }}
       />
-      <Screen name="Other Profile" component={OtherProfile} />
+
       <Screen
         name="Trip Detail"
         component={TripDetail}
@@ -37,14 +38,10 @@ const RootNavigator = () => {
       />
 
       <Screen
-        name="MyProfile"
+        name="Profile"
         component={Profile}
-        options={({ route }) => {
-          const { user } = route.params;
-          return {
-            title: user.username,
-            headerLeft: () => <SignoutButton />,
-          };
+        options={{
+          headerShown: false,
         }}
       />
 

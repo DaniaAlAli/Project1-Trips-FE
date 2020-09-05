@@ -66,7 +66,6 @@ class AuthStore {
   };
 
   updateProfile = async (updatedProfile) => {
-    console.log("UPDATEE", updatedProfile);
     try {
       await instance.put("/profile", updatedProfile);
 

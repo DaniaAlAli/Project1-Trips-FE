@@ -63,3 +63,21 @@ export const DiscoverButton = styled(Button)`
   margin-top: 10px;
   background-color: black;
 `;
+
+export const FavoriteTripTitle = styled.Text`
+  align-items: center;
+  align-self: stretch;
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto;
+  padding: 15px;
+`;
+
+export const MyTripStyle = styled.Text`
+  align-items: center;
+  align-self: stretch;
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto;
+  padding: 15px;
+`;
