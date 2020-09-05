@@ -24,7 +24,6 @@ import authStore from "../../stores/authStore";
 import profileStore from "../../stores/profileStore";
 import TripList from "../TripList";
 import tripStore from "../../stores/tripStore";
-import MyFavtrip from "./MyFavtrip";
 import OtherFavtrip from "./OtherFavtrip";
 
 const OtherProfile = ({ route, navigation }) => {

@@ -90,6 +90,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
               type="AntDesign"
               name={trip.favorited ? "star" : "staro"}
               style={{ color: "#ffbe0b" }}
+              // permissions
               onPress={() => tripStore.updateFavoritetrip(trip)}
             />
           </StyledCard>
