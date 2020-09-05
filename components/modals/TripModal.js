@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import { Modal } from "react-native";
+import { Modal, TouchableWithoutFeedback } from "react-native";
+import { Text } from "native-base";
 
 //Stores
 import tripStore from "../../stores/tripStore";
+
+//Components
+import PlaceInput from "./PlaceInput";
 
 //Styling
 import {
@@ -15,6 +19,7 @@ import {
   ModalTextInput,
   ModalView,
   NameField,
+  StyledMapTextInput,
 } from "./styles";
 
 const TripModal = ({ closeModal, isOpen, oldTrip }) => {
@@ -25,6 +30,11 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
       details: "",
       image: "",
       date: "",
+      input: "",
+      predictions: [],
+      destinationInput: "",
+      latitude: "29.375859",
+      longitude: "47.9774052",
     }
   );
 
@@ -39,6 +49,11 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
         details: "",
         image: "",
         date: "",
+        input: "",
+        predictions: [],
+        destinationInput: "",
+        latitude: "29.375859",
+        longitude: "47.9774052",
       });
     }
     closeModal();
@@ -58,9 +73,7 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
             type="AntDesign"
             name="closecircleo"
           />
-
           <ModalTitle>Where did you go?</ModalTitle>
-
           <ModalTextInput
             onChangeText={(country) => setTrip({ ...trip, country })}
             placeholder="Country"
@@ -92,6 +105,7 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
             placeholderTextColor="#000000"
             value={trip.details}
           />
+          <PlaceInput trip={trip} setTrip={setTrip} />
           <CreateButton onPress={handleSubmit}>
             <CreateButtonText>{oldTrip ? "Update" : "Create"}</CreateButtonText>
           </CreateButton>

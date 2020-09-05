@@ -2,6 +2,7 @@ import { decorate, observable } from "mobx";
 
 import instance from "./instance";
 import authStore from "./authStore";
+import Axios from "axios";
 
 class TripStore {
   trips = [];
@@ -20,6 +21,7 @@ class TripStore {
   createTrip = async (newTrip) => {
     try {
       const res = await instance.post("/trips", newTrip);
+      // await this.getPlaces(res.data.destinationInput)
       this.trips.push(res.data);
     } catch (error) {
       console.log("TripStore -> createTrip -> error", error);
