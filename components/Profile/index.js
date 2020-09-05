@@ -29,6 +29,7 @@ import {
   DiscoverButton,
 } from "./styles";
 
+
 import { Text, Spinner, Right, Left } from "native-base";
 
 const Profile = ({ route, navigation }) => {
@@ -88,6 +89,7 @@ const Profile = ({ route, navigation }) => {
           <MyTripStyle>Welcome To My Trips ! {trips.length} </MyTripStyle>
         )}
         <TripList navigation={navigation} trips={trips} myTrips={!userId} />
+
         <DiscoverButton block onPress={() => navigation.navigate("Discover")}>
           <Text>{!userId ? "Discover" : "< All trips"}</Text>
         </DiscoverButton>

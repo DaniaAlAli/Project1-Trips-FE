@@ -3,9 +3,7 @@ import { observer } from "mobx-react";
 import { Modal } from "react-native";
 
 //Stores
-
 import tripStore from "../../stores/tripStore";
-import authStore from "../../stores/authStore";
 
 //Styling
 import {
@@ -62,7 +60,7 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
           />
 
           <ModalTitle>Where did you go?</ModalTitle>
-          {/* <NameField>Name: {tripStore.trip.profileName}</NameField> */}
+
           <ModalTextInput
             onChangeText={(country) => setTrip({ ...trip, country })}
             placeholder="Country"
