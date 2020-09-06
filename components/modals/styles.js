@@ -6,6 +6,7 @@ export const CloseButtonStyled = styled(Icon)`
   color: black;
   margin-right: 20px;
   margin-bottom: 20px;
+  margin-top: 20px;
 `;
 
 export const CreateButton = styled.TouchableOpacity`

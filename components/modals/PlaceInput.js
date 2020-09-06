@@ -1,15 +1,9 @@
-import React, { useState } from "react";
-import { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import React from "react";
 import axios from "axios";
-import { debounce } from "lodash";
+import _ from "lodash";
 import { ScrollView } from "react-native-gesture-handler";
 import { View } from "native-base";
-
-import {
-  Keyboard,
-  TouchableWithoutFeedback,
-  TouchableOpacity,
-} from "react-native";
+import { Keyboard, TouchableWithoutFeedback } from "react-native";
 
 //Components
 import Suggestions from "./Suggestions";
@@ -18,29 +12,21 @@ import Suggestions from "./Suggestions";
 import { StyledMapTextInput } from "./styles";
 
 const PlaceInput = ({ trip, setTrip }) => {
-  const getPlaces = async (input) => {
-    // console.log("getPlaces", input);
+  const getPlaces = _.debounce(async (input) => {
     const result = await axios.get(
-      `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyDPlAdw1thw8hYHNNO8xbi8EO6_0Etn7Jo&input=${
-        input !== "" ? input : "Kuwait"
-      }`
+      `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyDPlAdw1thw8hYHNNO8xbi8EO6_0Etn7Jo&input=${input}`
     );
     setTrip({
       ...trip,
       destinationInput: input,
       predictions: result.data.predictions,
     });
-  };
+  }, 1000);
 
   const getCoordinates = async (input) => {
-    // console.log("getCoordinates");
     const response = await axios.get(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${input}&key=AIzaSyDPlAdw1thw8hYHNNO8xbi8EO6_0Etn7Jo`
     );
-    // console.log(
-    //   "getCoordinates -> response.data.results[0].geometry.location.lat",
-    //   response.data.results[0].geometry.location.lat
-    // );
 
     setTrip({
       ...trip,
@@ -57,7 +43,6 @@ const PlaceInput = ({ trip, setTrip }) => {
 
   const handleDestination = (main_text, place_id) => {
     hideKeyboard();
-    // console.log("handleDestination -> main_text", main_text);
     setTrip({
       ...trip,
       destinationInput: main_text,
@@ -76,16 +61,16 @@ const PlaceInput = ({ trip, setTrip }) => {
     );
   });
 
-  //   console.log("PlaceInput -> place.latitude", place.latitude);
-  //   console.log("PlaceInput -> place.longitude", place.longitude);
-  //   console.log("PlaceInput -> place.destinationInput", place.destinationInput);
   return (
     <TouchableWithoutFeedback onPress={hideKeyboard}>
       <ScrollView>
         <View>
           <StyledMapTextInput
-            onChangeText={(input) => getPlaces(input)}
-            // value={place.destinationInput} when i remove this lag in input disappears
+            onChangeText={(input) => {
+              getPlaces(input);
+              setTrip({ ...trip, destinationInput: input });
+            }}
+            // value={trip.destinationInput}
             autoCapitalize="none"
             autoCorrect={false}
             placeholder="Add Location"

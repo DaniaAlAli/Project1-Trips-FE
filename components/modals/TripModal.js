@@ -31,7 +31,7 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
       details: "",
       image: "",
       date: "",
-      input: "",
+      // input: "",
       predictions: [],
       destinationInput: "",
       latitude: "29.375859",
@@ -50,7 +50,7 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
         details: "",
         image: "",
         date: "",
-        input: "",
+        // input: "",
         predictions: [],
         destinationInput: "",
         latitude: "29.375859",
@@ -111,7 +111,11 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
             placeholderTextColor="#000000"
             value={trip.details}
           />
-          <PlaceInput trip={trip} setTrip={setTrip} />
+          <PlaceInput
+            // value={trip.destinationInput}
+            trip={trip}
+            setTrip={setTrip}
+          />
           <CreateButton onPress={handleSubmit}>
             <CreateButtonText>{oldTrip ? "Update" : "Create"}</CreateButtonText>
           </CreateButton>
