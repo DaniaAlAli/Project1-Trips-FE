@@ -8,31 +8,21 @@ export const BackgroundImage = styled.ImageBackground`
   justify-content: center;
 `;
 
-export const SignInButtonStyled = styled(Button)`
-  background-color: #74c66f;
+export const SignInStyled = styled.Text`
+  margin-bottom: 100px;
+  font-size: 20px;
   color: white;
+  font-weight: bold;
+  text-align: center;
   align-self: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border-radius: 70;
-  padding-right: 40px;
-  padding-left: 40px;
-`;
-
-export const SignUpButtonStyled = styled(Button)`
-  background-color: #74c66f;
-  color: white;
-  align-self: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  border-radius: 70;
-  padding-right: 40px;
-  padding-left: 40px;
+  padding: 3px;
+  border: 5px;
+  border-radius: 8px;
 `;
 
 export const Title = styled.Text`
   margin-bottom: 180px;
-  font-size: 35px;
+  font-size: 20px;
   color: white;
   font-weight: bold;
   text-align: center;

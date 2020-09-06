@@ -15,6 +15,7 @@ import {
   StyledImage,
   DeleteTrip,
   CreatedAt,
+  OwnerOfTrip,
 } from "./styles";
 
 // Stores
@@ -31,7 +32,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
             <Left></Left>
             <CreatedAt>{moment(trip.createdAt).fromNow()}</CreatedAt>
             {!myTrips && (
-              <Text
+              <OwnerOfTrip
                 onPress={() =>
                   navigation.push("Profile", {
                     userId: trip.userId,
@@ -40,7 +41,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 }
               >
                 {trip.profileName}
-              </Text>
+              </OwnerOfTrip>
             )}
             <CardItem cardBody>
               <StyledImage
@@ -55,15 +56,21 @@ const TripItem = ({ trip, navigation, myTrips }) => {
               />
             </CardItem>
             <CardItem>
-              <Left>
-                <Text
-                  onPress={() =>
-                    navigation.navigate("Trip Detail", { trip: trip })
-                  }
-                >
-                  {trip.destination}
-                </Text>
-              </Left>
+              <Icon
+                type="AntDesign"
+                name={trip.favorited ? "star" : "staro"}
+                style={{ color: "#ffbe0b" }}
+                // permissions
+                onPress={() => tripStore.updateFavoritetrip(trip)}
+              />
+              <Text
+                onPress={() =>
+                  navigation.navigate("Trip Detail", { trip: trip })
+                }
+              >
+                {trip.destination}
+              </Text>
+
               <Right>
                 <Text>{trip.details}</Text>
               </Right>
@@ -78,13 +85,6 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 />
               </>
             )}
-            <Icon
-              type="AntDesign"
-              name={trip.favorited ? "star" : "staro"}
-              style={{ color: "#ffbe0b" }}
-              // permissions
-              onPress={() => tripStore.updateFavoritetrip(trip)}
-            />
           </StyledCard>
         </StyledContent>
       </ListItem>

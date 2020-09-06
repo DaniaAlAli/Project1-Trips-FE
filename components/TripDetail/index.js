@@ -38,23 +38,20 @@ const TripDetail = ({ route }) => {
               <DetailDiv>
                 <DetailTitle>
                   <CountryButtonStyled type="Entypo" name="location" />
-                  Country:
+                  Country: {trip.country}
                 </DetailTitle>
-                <DetailField>{trip.country}</DetailField>
               </DetailDiv>
               <DetailDiv>
                 <DetailTitle>
                   <DateButtonStyled type="MaterialIcons" name="date-range" />
-                  Date:
+                  Date:{trip.date}
                 </DetailTitle>
-                <DetailField>{trip.date}</DetailField>
               </DetailDiv>
               <DetailDiv>
                 <DetailTitle>
                   <DetailButtonStyled type="Entypo" name="info" />
-                  Details:
+                  Details:{trip.details}
                 </DetailTitle>
-                <DetailField>{trip.details}</DetailField>
               </DetailDiv>
             </Body>
           </CardItem>

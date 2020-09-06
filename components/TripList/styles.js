@@ -55,3 +55,11 @@ export const CreatedAt = styled.Text`
   text-align: right;
   margin-right: 10px;
 `;
+
+export const OwnerOfTrip = styled.Text`
+  color: #ffbe0b;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 1px;
+  font-size: 20px;
+`;
