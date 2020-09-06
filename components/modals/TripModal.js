@@ -21,6 +21,7 @@ import {
   NameField,
   StyledMapTextInput,
 } from "./styles";
+import { Text } from "native-base";
 
 const TripModal = ({ closeModal, isOpen, oldTrip }) => {
   const [trip, setTrip] = useState(
@@ -73,7 +74,12 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
             type="AntDesign"
             name="closecircleo"
           />
-          <ModalTitle>Where did you go?</ModalTitle>
+          {oldTrip ? (
+            <ModalTitle>Update Trip </ModalTitle>
+          ) : (
+            <ModalTitle>Where did you go ?</ModalTitle>
+          )}
+
           <ModalTextInput
             onChangeText={(country) => setTrip({ ...trip, country })}
             placeholder="Country"

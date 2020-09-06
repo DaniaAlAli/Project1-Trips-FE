@@ -3,7 +3,7 @@ import React, { useState } from "react";
 //Components
 import TripModal from "../modals/TripModal";
 
-// //Styles
+//Styles
 import { UpdateButtonStyled, UpdateButtonText } from "./styles";
 
 const UpdateButton = ({ trip }) => {

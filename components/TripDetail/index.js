@@ -3,6 +3,13 @@ import { observer } from "mobx-react";
 import { SafeAreaView } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
+//Stores
+import tripStore from "../../stores/tripStore";
+
+//Components
+import Map from "../Map";
+
+// Styles
 import {
   Body,
   Content,
@@ -14,14 +21,10 @@ import {
   DatePicker,
 } from "native-base";
 
-//Components
-import Map from "../Map";
 
-//Styles
 import {
   CountryButtonStyled,
   DateButtonStyled,
-  DestinationName,
   DetailTitle,
   DetailDiv,
   DetailField,
@@ -51,13 +54,14 @@ const TripDetail = ({ route }) => {
                                 "https://images.unsplash.com/photo-1564689510742-4e9c7584181d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
                             }
                       }
+
                     />
                     <DetailDiv>
                       <DetailTitle>
                         <CountryButtonStyled type="Entypo" name="location" />
-                        Country:
+                        Country: {trip.country}
                       </DetailTitle>
-                      <DetailField>{trip.country}</DetailField>
+               
                     </DetailDiv>
                     <DetailDiv>
                       <DetailTitle>
@@ -65,16 +69,14 @@ const TripDetail = ({ route }) => {
                           type="MaterialIcons"
                           name="date-range"
                         />
-                        Date:
+                        Date: {trip.date}
                       </DetailTitle>
-                      <DetailField>{trip.date}</DetailField>
                     </DetailDiv>
                     <DetailDiv>
                       <DetailTitle>
                         <DetailButtonStyled type="Entypo" name="info" />
-                        Details:
+                        Details: {trip.details}
                       </DetailTitle>
-                      <DetailField>{trip.details}</DetailField>
                     </DetailDiv>
                     <Map trip={trip} />
                   </Body>

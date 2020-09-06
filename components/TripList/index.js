@@ -2,8 +2,6 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Content, List, Spinner } from "native-base";
 
-import { MyTripStyle } from "./styles";
-
 //Components
 import TripItem from "./TripItem";
 
