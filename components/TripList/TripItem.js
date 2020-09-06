@@ -2,35 +2,26 @@ import React, { useState } from "react";
 import { observer } from "mobx-react";
 import moment from "moment";
 
+// Components
+import UpdateButton from "../buttons/UpdateButton";
+import Profile from "../Profile";
+
 // Styles
-import {
-  CardItem,
-  Left,
-  Right,
-  ListItem,
-  Text,
-  Icon,
-} from "native-base";
-
+import { CardItem, Left, Right, ListItem, Text, Icon } from "native-base";
 import { color } from "react-native-reanimated";
-
 import {
   StyledCard,
   StyledContent,
   StyledImage,
   DeleteTrip,
   CreatedAt,
+  OwnerOfTrip,
+  ButtonWrapper,
 } from "./styles";
 
 // Stores
 import tripStore from "../../stores/tripStore";
 import authStore from "../../stores/authStore";
-
-// Components
-import UpdateButton from "../buttons/UpdateButton";
-import Profile from "../Profile";
-
-
 
 const TripItem = ({ trip, navigation, myTrips }) => {
   return (
@@ -40,7 +31,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
           <StyledCard>
             <CreatedAt>{moment(trip.createdAt).fromNow()}</CreatedAt>
             {!myTrips && (
-              <Text
+              <OwnerOfTrip
                 onPress={() =>
                   navigation.push("Profile", {
                     userId: trip.userId,
@@ -49,7 +40,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 }
               >
                 {trip.profileName}
-              </Text>
+              </OwnerOfTrip>
             )}
             <CardItem cardBody>
               <StyledImage
@@ -64,15 +55,24 @@ const TripItem = ({ trip, navigation, myTrips }) => {
               />
             </CardItem>
             <CardItem>
-              <Left>
-                <Text
-                  onPress={() =>
-                    navigation.navigate("Trip Detail", { trip: trip })
-                  }
-                >
-                  {trip.destination}
-                </Text>
-              </Left>
+              <Icon
+                type="AntDesign"
+                name={trip.favorited ? "star" : "staro"}
+                style={{ color: "#ffbe0b" }}
+                // permissions
+                onPress={() => tripStore.updateFavoritetrip(trip)}
+              />
+              <Text
+                onPress={() =>
+                  navigation.navigate("Trip Detail", { trip: trip })
+                }
+              >
+                {trip.destination}
+              </Text>
+
+              <Right>
+                <Text>{trip.details}</Text>
+              </Right>
             </CardItem>
             {myTrips && (
               <ButtonWrapper>
@@ -85,13 +85,6 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 />
               </ButtonWrapper>
             )}
-            <Icon
-              type="AntDesign"
-              name={trip.favorited ? "star" : "staro"}
-              style={{ color: "#ffbe0b" }}
-              // permissions
-              onPress={() => tripStore.updateFavoritetrip(trip)}
-            />
           </StyledCard>
         </StyledContent>
       </ListItem>

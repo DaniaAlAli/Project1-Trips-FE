@@ -14,22 +14,16 @@ export const DetailButtonStyled = styled(Icon)`
   color: greenyellow;
 `;
 
-export const DestinationName = styled.Text`
-  margin: 20px;
-`;
-
 export const DetailTitle = styled.Text`
   font-weight: bold;
 `;
 
 export const DetailDiv = styled.View`
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 18px;
 `;
 
 export const DetailField = styled.Text`
-  margin-top: 10px;
-  margin-left: 40px;
+  padding-left: 10%;
 `;
 
 export const StyledImage = styled.Image`

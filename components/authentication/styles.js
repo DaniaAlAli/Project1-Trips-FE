@@ -1,4 +1,3 @@
-//Styled components
 import styled from "styled-components/native";
 import { Button, Form } from "native-base";
 
