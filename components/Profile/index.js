@@ -29,7 +29,12 @@ import {
   DiscoverButton,
 } from "./styles";
 
+<<<<<<< HEAD
 import { Text, Spinner, Right } from "native-base";
+=======
+
+import { Text, Spinner, Right, Left } from "native-base";
+>>>>>>> e11f116624da0eadeaede235c4ae5f93a058c8d6
 
 const Profile = ({ route, navigation }) => {
   const { userId } = route.params;
@@ -88,6 +93,7 @@ const Profile = ({ route, navigation }) => {
           <MyTripStyle>Welcome To My Trips ! {trips.length} </MyTripStyle>
         )}
         <TripList navigation={navigation} trips={trips} myTrips={!userId} />
+
         <DiscoverButton block onPress={() => navigation.navigate("Discover")}>
           <Text>{!userId ? "Discover" : "< All trips"}</Text>
         </DiscoverButton>

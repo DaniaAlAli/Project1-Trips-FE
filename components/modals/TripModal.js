@@ -59,11 +59,17 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
             type="AntDesign"
             name="closecircleo"
           />
+<<<<<<< HEAD
           {oldTrip ? (
             <ModalTitle>Update Trip </ModalTitle>
           ) : (
             <ModalTitle>Where did you go ?</ModalTitle>
           )}
+=======
+
+          <ModalTitle>Where did you go?</ModalTitle>
+
+>>>>>>> e11f116624da0eadeaede235c4ae5f93a058c8d6
           <ModalTextInput
             onChangeText={(country) => setTrip({ ...trip, country })}
             placeholder="Country"

@@ -1,6 +1,21 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import moment from "moment";
+<<<<<<< HEAD
+=======
+
+// Styles
+import {
+  CardItem,
+  Left,
+  Right,
+  ListItem,
+  Text,
+  Icon,
+} from "native-base";
+
+import { color } from "react-native-reanimated";
+>>>>>>> e11f116624da0eadeaede235c4ae5f93a058c8d6
 
 // Components
 import UpdateButton from "../buttons/UpdateButton";
@@ -22,14 +37,17 @@ import {
 import tripStore from "../../stores/tripStore";
 import authStore from "../../stores/authStore";
 
+// Components
+import UpdateButton from "../buttons/UpdateButton";
+import Profile from "../Profile";
+
+
 const TripItem = ({ trip, navigation, myTrips }) => {
   return (
     <>
       <ListItem>
         <StyledContent>
           <StyledCard>
-            <Left></Left>
-            <Left></Left>
             <CreatedAt>{moment(trip.createdAt).fromNow()}</CreatedAt>
             {!myTrips && (
               <OwnerOfTrip
@@ -56,6 +74,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
               />
             </CardItem>
             <CardItem>
+<<<<<<< HEAD
               <Icon
                 type="AntDesign"
                 name={trip.favorited ? "star" : "staro"}
@@ -74,16 +93,28 @@ const TripItem = ({ trip, navigation, myTrips }) => {
               <Right>
                 <Text>{trip.details}</Text>
               </Right>
+=======
+              <Left>
+                <Text
+                  onPress={() =>
+                    navigation.navigate("Trip Detail", { trip: trip })
+                  }
+                >
+                  {trip.destination}
+                </Text>
+              </Left>
+>>>>>>> e11f116624da0eadeaede235c4ae5f93a058c8d6
             </CardItem>
             {myTrips && (
-              <>
+              <ButtonWrapper>
                 <UpdateButton trip={trip} />
+
                 <DeleteTrip
                   type="EvilIcons"
                   name="trash"
                   onPress={() => tripStore.deleteTrip(trip.id)}
                 />
-              </>
+              </ButtonWrapper>
             )}
           </StyledCard>
         </StyledContent>

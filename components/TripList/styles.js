@@ -1,13 +1,19 @@
 import styled from "styled-components/native";
-
 import { Image } from "react-native";
 import { Card, Content } from "native-base";
-import { Icon } from "native-base";
+import { Icon, View } from "native-base";
 
 export const DeleteTrip = styled(Icon)`
   color: red;
-  padding-left: 70px;
-  flex: 5;
+  position: absolute;
+  right: 10px;
+  bottom: 3px;
+`;
+
+export const ButtonWrapper = styled(View)`
+  margin-top: 33px;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const AddButton = styled.TouchableOpacity`
