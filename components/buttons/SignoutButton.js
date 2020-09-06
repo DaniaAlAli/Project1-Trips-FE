@@ -7,6 +7,7 @@ import { SignoutStyledButton } from "./styles";
 
 // Stores
 import authStore from "../../stores/authStore";
+import { Spinner } from "native-base";
 
 const SignoutButton = () => {
   const navigation = useNavigation();

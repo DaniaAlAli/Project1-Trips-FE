@@ -17,7 +17,6 @@ const RootNavigator = () => {
   return (
     <Navigator initialRouteName="Home">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
-
       <Screen
         name="Discover"
         component={Discover}
