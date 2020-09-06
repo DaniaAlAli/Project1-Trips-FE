@@ -1,14 +1,6 @@
 //Styled components
 import styled from "styled-components/native";
 import { Button, Text } from "native-base";
-import { Font } from "expo";
-
-// constructor(){
-//   super()
-//   this.state={
-//     fontLoaded: false
-//   }
-// }
 
 export const BackgroundImage = styled.ImageBackground`
   width: 100%;

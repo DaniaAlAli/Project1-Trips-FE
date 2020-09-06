@@ -3,9 +3,7 @@ import { observer } from "mobx-react";
 import { Modal } from "react-native";
 
 //Stores
-
 import tripStore from "../../stores/tripStore";
-import authStore from "../../stores/authStore";
 
 //Styling
 import {

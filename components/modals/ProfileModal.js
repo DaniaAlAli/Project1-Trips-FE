@@ -3,9 +3,7 @@ import { observer } from "mobx-react";
 import { Modal } from "react-native";
 
 //Stores
-
 import authStore from "../../stores/authStore";
-import profileStore from "../../stores/profileStore";
 
 //Styling
 import {
@@ -27,7 +25,6 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
 
   const handleSubmit = () => {
     authStore.updateProfile(profile);
-
     closeModal();
   };
 

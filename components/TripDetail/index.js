@@ -1,33 +1,20 @@
 import React from "react";
 import { observer } from "mobx-react";
-import {
-  Body,
-  Content,
-  Text,
-  Container,
-  Card,
-  CardItem,
-  View,
-} from "native-base";
-
-//Components
 
 //Stores
 import tripStore from "../../stores/tripStore";
 
 //Styles
-
+import { Body, Content, Container, Card, CardItem } from "native-base";
 import {
   CountryButtonStyled,
   DateButtonStyled,
-  DestinationName,
   DetailTitle,
   DetailDiv,
   DetailField,
   DetailButtonStyled,
   StyledImage,
 } from "./styles";
-import UpdateButton from "../buttons/UpdateButton";
 
 const TripDetail = ({ route }) => {
   const { trip } = route.params;
@@ -69,7 +56,6 @@ const TripDetail = ({ route }) => {
                 </DetailTitle>
                 <DetailField>{trip.details}</DetailField>
               </DetailDiv>
-              {/* <UpdateButton trip={trip} /> */}
             </Body>
           </CardItem>
         </Card>

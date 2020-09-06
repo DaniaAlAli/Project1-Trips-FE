@@ -3,12 +3,7 @@ import authStore from "../../stores/authStore";
 import { observer } from "mobx-react";
 
 //Styles
-import {
-  SignInButtonStyled,
-  SignUpButtonStyled,
-  BackgroundImage,
-  Title,
-} from "./styles";
+import { SignInButtonStyled, BackgroundImage, Title } from "./styles";
 import { Text } from "native-base";
 
 const Home = ({ navigation }) => {

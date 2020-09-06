@@ -1,8 +1,8 @@
 import React from "react";
-import { ScrollView } from "react-native-gesture-handler";
-import { SafeAreaView } from "react-native";
-import { observer } from "mobx-react";
 import moment from "moment";
+import { observer } from "mobx-react";
+import { SafeAreaView } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 //Components
 import TripList from "../TripList";
@@ -29,7 +29,7 @@ import {
   DiscoverButton,
 } from "./styles";
 
-import { Text, Spinner, Right, Left } from "native-base";
+import { Text, Spinner, Right } from "native-base";
 
 const Profile = ({ route, navigation }) => {
   const { userId } = route.params;

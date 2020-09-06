@@ -1,33 +1,25 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import {
-  CardItem,
-  Left,
-  Right,
-  ListItem,
-  Text,
-  Icon,
-  Button,
-} from "native-base";
 import moment from "moment";
 
+// Components
+import UpdateButton from "../buttons/UpdateButton";
+import Profile from "../Profile";
+
+// Styles
+import { CardItem, Left, Right, ListItem, Text, Icon } from "native-base";
+import { color } from "react-native-reanimated";
 import {
-  TripItemStyled,
   StyledCard,
   StyledContent,
   StyledImage,
   DeleteTrip,
-  MyTripStyle,
   CreatedAt,
 } from "./styles";
 
 // Stores
 import tripStore from "../../stores/tripStore";
-import UpdateButton from "../buttons/UpdateButton";
 import authStore from "../../stores/authStore";
-import profileStore from "../../stores/profileStore";
-import Profile from "../Profile";
-import { color } from "react-native-reanimated";
 
 const TripItem = ({ trip, navigation, myTrips }) => {
   return (
