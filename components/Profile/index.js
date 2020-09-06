@@ -29,7 +29,6 @@ import {
   DiscoverButton,
 } from "./styles";
 
-
 import { Text, Spinner, Right, Left } from "native-base";
 
 const Profile = ({ route, navigation }) => {

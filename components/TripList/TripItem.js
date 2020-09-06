@@ -3,14 +3,7 @@ import { observer } from "mobx-react";
 import moment from "moment";
 
 // Styles
-import {
-  CardItem,
-  Left,
-  Right,
-  ListItem,
-  Text,
-  Icon,
-} from "native-base";
+import { CardItem, Left, Right, ListItem, Text, Icon } from "native-base";
 
 import { color } from "react-native-reanimated";
 
@@ -20,6 +13,7 @@ import {
   StyledImage,
   DeleteTrip,
   CreatedAt,
+  ButtonWrapper,
 } from "./styles";
 
 // Stores
@@ -29,8 +23,6 @@ import authStore from "../../stores/authStore";
 // Components
 import UpdateButton from "../buttons/UpdateButton";
 import Profile from "../Profile";
-
-
 
 const TripItem = ({ trip, navigation, myTrips }) => {
   return (
