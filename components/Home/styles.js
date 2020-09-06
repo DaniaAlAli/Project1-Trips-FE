@@ -18,6 +18,7 @@ export const SignInStyled = styled.Text`
   padding: 3px;
   border: 5px;
   border-radius: 8px;
+  border-color: white;
 `;
 
 export const Title = styled.Text`
