@@ -6,7 +6,6 @@ import { observer } from "mobx-react";
 import Home from "../Home";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
-import TripDetail from "../TripDetail";
 import Profile from "../Profile";
 import SignoutButton from "../buttons/SignoutButton";
 import Discover from "../../Discover/index";

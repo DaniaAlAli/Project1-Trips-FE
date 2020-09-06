@@ -1,25 +1,12 @@
 import React from "react";
 import { observer } from "mobx-react";
-<<<<<<< HEAD
 
 //Stores
 import tripStore from "../../stores/tripStore";
 
 //Styles
 import { Body, Content, Container, Card, CardItem } from "native-base";
-=======
-import {
-  Body,
-  Content,
-  Text,
-  Container,
-  Card,
-  CardItem,
-  View,
-} from "native-base";
 
-//Styles
->>>>>>> e11f116624da0eadeaede235c4ae5f93a058c8d6
 import {
   CountryButtonStyled,
   DateButtonStyled,
