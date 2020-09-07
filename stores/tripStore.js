@@ -1,8 +1,6 @@
 import { decorate, observable } from "mobx";
-
 import instance from "./instance";
 import authStore from "./authStore";
-import Axios from "axios";
 
 class TripStore {
   trips = [];
@@ -20,21 +18,20 @@ class TripStore {
 
   createTrip = async (newTrip) => {
     try {
-      const res = await instance.post("/trips", newTrip);
-      // await this.getPlaces(res.data.destinationInput)
+      const formData = new FormData();
+      for (const key in newTrip) formData.append(key, newTrip[key]);
+      const res = await instance.post("/trips", formData);
       this.trips.push(res.data);
     } catch (error) {
       console.log("TripStore -> createTrip -> error", error);
     }
   };
 
-  getTripById = (tripId) => {
-    return this.trips.find((trip) => trip.id === tripId);
-  };
-
   updateTrip = async (updatedOne) => {
     try {
-      await instance.put(`/trips/${updatedOne.id}`, updatedOne);
+      const formData = new FormData();
+      for (const key in updatedOne) formData.append(key, updatedOne[key]);
+      await instance.put(`/trips/${updatedOne.id}`, formData);
       const trip = this.trips.find((trip) => trip.id === updatedOne.id);
       for (const key in updatedOne) trip[key] = updatedOne[key];
     } catch (error) {

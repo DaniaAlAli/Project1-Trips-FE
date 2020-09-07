@@ -5,10 +5,9 @@ import { Button } from "native-base";
 export const ProfileImage = styled(Image)`
   margin-bottom: 20px;
   margin-left: 10px;
-  width: 70;
-  height: 70;
+  width: 100px;
+  height: 100px;
   border-radius: 50;
-  /* background-color: red; */
 `;
 
 export const Name = styled.View`

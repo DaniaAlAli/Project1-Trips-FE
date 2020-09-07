@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import { Modal, TouchableWithoutFeedback } from "react-native";
-import { Text } from "native-base";
+import { Modal, Text, TouchableOpacity } from "react-native";
+
+import * as Permissions from "expo-permissions";
+import * as ImagePicker from "expo-image-picker";
 
 //Stores
 import tripStore from "../../stores/tripStore";
@@ -18,10 +20,7 @@ import {
   ModalTitle,
   ModalTextInput,
   ModalView,
-  NameField,
-  StyledMapTextInput,
 } from "./styles";
-import { Text } from "native-base";
 
 const TripModal = ({ closeModal, isOpen, oldTrip }) => {
   const [trip, setTrip] = useState(
@@ -38,6 +37,40 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
       longitude: "47.9774052",
     }
   );
+
+  const [selectedImage, setSelectedImage] = React.useState(null);
+
+  let openImagePickerAsync = async () => {
+    let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      alert("Permission to access camera roll is required!");
+      return;
+    }
+
+    let pickerResult = await ImagePicker.launchImageLibraryAsync();
+
+    if (pickerResult.cancelled === true) {
+      return;
+    }
+
+    setSelectedImage({ localUri: pickerResult.uri });
+    // setSelectedImage({ localUri: pickerResult.uri });
+    // ImagePicker saves the taken photo to disk and returns a local URI to it
+    let localUri = pickerResult.uri;
+    let filename = localUri.split("/").pop();
+
+    // Infer the type of the image
+    let match = /\.(\w+)$/.exec(filename);
+    let type = match ? `image/${match[1]}` : `image`;
+
+    // Assume "photo" is the name of the form field the server expects
+    setTrip({ ...trip, image: { uri: localUri, name: filename, type } });
+  };
+
+  if (selectedImage !== null) {
+    return <Image source={{ uri: selectedImage.localUri }} />;
+  }
 
   const handleSubmit = () => {
     if (oldTrip) {
@@ -92,12 +125,15 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
             placeholderTextColor="#000000"
             value={trip.destination}
           />
-          <ModalTextInput
+          {/* <ModalTextInput
             onChangeText={(image) => setTrip({ ...trip, image })}
             placeholder="Image"
             placeholderTextColor="#000000"
             value={trip.image}
-          />
+          /> */}
+          <TouchableOpacity onPress={openImagePickerAsync}>
+            <Text>Pick a photo</Text>
+          </TouchableOpacity>
           <ModalTextInput
             onChangeText={(date) => setTrip({ ...trip, date })}
             placeholder="Date"

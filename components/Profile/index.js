@@ -29,8 +29,8 @@ import {
   DiscoverButton,
 } from "./styles";
 
+import { Text, Spinner, Right, Body } from "native-base";
 
-import { Text, Spinner, Right, Left } from "native-base";
 
 
 const Profile = ({ route, navigation }) => {
@@ -61,25 +61,27 @@ const Profile = ({ route, navigation }) => {
               <AddButton />
             </Right>
           )}
-          <ProfileImage
-            source={
-              profile.image ?? {
-                uri:
-                  "https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png",
+          <Body>
+            <ProfileImage
+              source={
+                profile.image ?? {
+                  uri:
+                    "https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png",
+                }
               }
-            }
-          />
-
-          <Name>
-            <FirstName>{user.firstName}</FirstName>
-            <LastName>{user.lastName}</LastName>
-          </Name>
-          <UserName>@{user.username}</UserName>
-          <Joined>
-            Traveling since {moment(user.createdAt).format("dddd")}
-          </Joined>
-          <Bio>{profile.bio}</Bio>
+            />
+            <Name>
+              <FirstName>{user.firstName}</FirstName>
+              <LastName>{user.lastName}</LastName>
+            </Name>
+            <UserName>@{user.username}</UserName>
+            <Joined>
+              Traveling since {moment(user.createdAt).format("dddd")}
+            </Joined>
+            <Bio>{profile.bio}</Bio>
+          </Body>
         </UserInfo>
+
         {favoritedTrips.length !== 0 && (
           <FavoriteTripTitle>
             Favorite Trips ! {favoritedTrips.length}
@@ -90,9 +92,8 @@ const Profile = ({ route, navigation }) => {
           <MyTripStyle>Welcome To My Trips ! {trips.length} </MyTripStyle>
         )}
         <TripList navigation={navigation} trips={trips} myTrips={!userId} />
-
         <DiscoverButton block onPress={() => navigation.navigate("Discover")}>
-          <Text>{!userId ? "Discover" : "< All trips"}</Text>
+          <Text>{!userId ? ` Discover  ` : "< All trips"}</Text>
         </DiscoverButton>
       </ScrollView>
     </SafeAreaView>
