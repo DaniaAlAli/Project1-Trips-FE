@@ -3,10 +3,11 @@ import { Image } from "react-native";
 import { Button } from "native-base";
 
 export const ProfileImage = styled(Image)`
+  margin-top: 100px;
   margin-bottom: 20px;
   margin-left: 10px;
-  width: 70;
-  height: 70;
+  width: 50;
+  height: 50;
   border-radius: 50;
   /* background-color: red; */
 `;
@@ -19,18 +20,29 @@ export const FirstName = styled.Text`
   font-size: 20px;
   font-weight: bold;
   margin-left: 10px;
+  color: white;
+  position: absolute;
+  left: 60px;
+  bottom: 40;
 `;
 
 export const LastName = styled.Text`
   font-size: 20px;
   font-weight: bold;
+  color: white;
+  position: absolute;
+  left: 80px;
+  bottom: 20;
 `;
 
 export const UserName = styled.Text`
-  font-size: 15px;
+  font-size: 22px;
   color: grey;
   padding: 1px;
   margin-left: 10px;
+  position: absolute;
+  left: 150px;
+  top: 30px;
 `;
 
 export const Bio = styled.Text`
@@ -38,6 +50,7 @@ export const Bio = styled.Text`
   margin-left: 5px;
   margin-top: 8px;
   margin-bottom: 10px;
+  color: grey;
 `;
 
 export const UserInfo = styled.View`
@@ -62,4 +75,9 @@ export const DiscoverButton = styled(Button)`
   align-self: center;
   margin-top: 10px;
   background-color: black;
+`;
+
+export const BackgroundImage = styled.ImageBackground`
+  width: 100%;
+  height: 100%;
 `;

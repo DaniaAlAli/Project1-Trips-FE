@@ -22,6 +22,9 @@ import {
   StyledImage,
 } from "./styles";
 
+// component
+import Ask from "../QA";
+
 const TripDetail = ({ route }) => {
   const { trip } = route.params;
 
@@ -65,6 +68,8 @@ const TripDetail = ({ route }) => {
               {/* <UpdateButton trip={trip} /> */}
             </Body>
           </CardItem>
+          {/* <CardItem>
+          </CardItem> */}
         </Card>
       </Content>
     </Container>

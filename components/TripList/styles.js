@@ -4,7 +4,7 @@ import { Card, Content } from "native-base";
 import { Icon, View } from "native-base";
 
 export const DeleteTrip = styled(Icon)`
-  color: red;
+  color: #c1b3d1;
   position: absolute;
   right: 10px;
   bottom: 3px;
@@ -42,10 +42,12 @@ export const StyledImage = styled(Image)`
 
 export const StyledCard = styled(Card)`
   border-radius: 0;
+  border-color: #010325;
 `;
 
 export const StyledContent = styled(Content)`
-  border-radius: 25;
+  border-radius: 15;
+  border-color: #010325;
 `;
 
 export const StyledView = styled.View`
@@ -68,4 +70,10 @@ export const MyTripStyle = styled.Text`
   font-size: 20px;
   margin: auto;
   padding: 15px;
+  color: red;
+`;
+
+export const BackgroundImage = styled.ImageBackground`
+  width: 100%;
+  height: 100%;
 `;

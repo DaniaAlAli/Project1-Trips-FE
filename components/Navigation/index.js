@@ -32,6 +32,7 @@ const RootNavigator = () => {
           const { trip } = route.params;
           return {
             title: trip.destination,
+            headerShown: false,
           };
         }}
       />
@@ -43,7 +44,7 @@ const RootNavigator = () => {
           const { user } = route.params;
           return {
             title: user.username,
-            headerLeft: () => <SignoutButton />,
+            headerShown: false,
           };
         }}
       />

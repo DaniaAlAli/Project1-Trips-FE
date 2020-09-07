@@ -9,8 +9,8 @@ export const BackgroundImage = styled.ImageBackground`
 `;
 
 export const SignInButtonStyled = styled(Button)`
-  background-color: #74c66f;
-  color: white;
+  background-color: orange;
+  color: red;
   align-self: center;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -31,9 +31,10 @@ export const SignUpButtonStyled = styled(Button)`
 `;
 
 export const Title = styled.Text`
-  margin-bottom: 199px;
+  margin-top: 100px;
   font-size: 35px;
   color: white;
+  /* #010325 */
   font-weight: bold;
   text-align: center;
   width: 60%;

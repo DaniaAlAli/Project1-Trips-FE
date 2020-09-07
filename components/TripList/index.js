@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Content, List, Spinner } from "native-base";
 
-import { MyTripStyle } from "./styles";
+import { MyTripStyle, BackgroundImage } from "./styles";
 
 //Components
 import TripItem from "./TripItem";
@@ -23,10 +23,12 @@ const TripList = ({ navigation, trips, myTrips }) => {
   ));
 
   return (
-    <Content>
+    <Content style={{ backgroundColor: "#d8e0ea" }}>
       {myTrips && <MyTripStyle>Welcome To My Trips!</MyTripStyle>}
 
       <List>{tripList}</List>
+
+      {/* bottom nav */}
     </Content>
   );
 };

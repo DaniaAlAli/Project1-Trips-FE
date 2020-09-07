@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 
 import moment from "moment";
-import { Text, Right } from "native-base";
+import { Text, Right, Left } from "native-base";
 import EditButton from "../buttons/EditButton";
 import AddButton from "../buttons/AddButton";
 import authStore from "../../stores/authStore";
@@ -19,21 +19,23 @@ import {
   UserName,
   DiscoverButton,
 } from "./styles";
+import SignoutButton from "../buttons/SignoutButton";
 
 const ProfileItem = () => {
   const { user } = authStore;
   const { profile } = user;
   return (
-    <UserInfo>
+    <UserInfo style={{ backgroundColor: "#101030" }}>
       <Right>
         <EditButton profile={profile} />
-        <AddButton />
       </Right>
+      {/* <SignoutButton />  Side drawer */}
+
       <ProfileImage
         source={
           profile.image ?? {
             uri:
-              "https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png",
+              "https://www.pinclipart.com/picdir/big/496-4968268_profile-icon-png-white-clipart.png",
           }
         }
       />
@@ -42,9 +44,10 @@ const ProfileItem = () => {
         <FirstName>{user.firstName}</FirstName>
         <LastName>{user.lastName}</LastName>
       </Name>
-      <UserName>@{user.username}</UserName>
-      <Joined>Traveling since {moment(user.createdAt).format("dddd")}</Joined>
+      <UserName>{user.username}</UserName>
+      {/* <Joined>Traveling since {moment(user.createdAt).format("dddd")}</Joined> */}
       <Bio>{profile.bio}</Bio>
+      <AddButton />
     </UserInfo>
   );
 };

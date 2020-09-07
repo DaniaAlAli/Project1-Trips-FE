@@ -25,7 +25,7 @@ const Signin = ({ navigation }) => {
   };
 
   return (
-    <BackgroundImage source={require(`../../Plane.png`)}>
+    <BackgroundImage source={require(`../../wing2.jpg`)}>
       <FormStyled>
         <Item floatingLabel>
           <Label style={{ color: "white" }}>Username</Label>
@@ -48,7 +48,7 @@ const Signin = ({ navigation }) => {
       </FormStyled>
 
       <SignUpButtonStyled onPress={handleSubmit} block>
-        <Text>Sign in</Text>
+        <Text>Check in</Text>
       </SignUpButtonStyled>
 
       <CreateNewAccountStyled primary>
