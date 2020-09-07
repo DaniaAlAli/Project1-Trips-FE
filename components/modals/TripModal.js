@@ -22,6 +22,7 @@ import {
   StyledMapTextInput,
 } from "./styles";
 import { Text } from "native-base";
+// REVIEW: cleanup your imports
 
 const TripModal = ({ closeModal, isOpen, oldTrip }) => {
   const [trip, setTrip] = useState(

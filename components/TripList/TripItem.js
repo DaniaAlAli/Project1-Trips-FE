@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { observer } from "mobx-react";
 import moment from "moment";
 
-
 // Styles
 import { CardItem, Left, Right, ListItem, Text, Icon } from "native-base";
 
 // Components
 import UpdateButton from "../buttons/UpdateButton";
 import Profile from "../Profile";
-
 
 // Styles
 import { CardItem, Left, Right, ListItem, Text, Icon } from "native-base";
@@ -28,8 +26,11 @@ import {
 import tripStore from "../../stores/tripStore";
 import authStore from "../../stores/authStore";
 
+// REVIEW: cleanup your imports
+
 const TripItem = ({ trip, navigation, myTrips }) => {
   return (
+    // REVIEW: Remove the fragment
     <>
       <ListItem>
         <StyledContent>
@@ -49,6 +50,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
             )}
             <CardItem cardBody>
               <StyledImage
+                // REVIEW: Since both images are using `uri`, you can clean up the source to be source={{ uri: trip.image || "https://images.unsplash.com/photo-1564689510742-4e9c7584181d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"}}
                 source={
                   trip.image
                     ? { uri: trip.image }
