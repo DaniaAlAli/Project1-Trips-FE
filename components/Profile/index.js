@@ -31,6 +31,8 @@ import {
 
 import { Text, Spinner, Right, Body } from "native-base";
 
+
+
 const Profile = ({ route, navigation }) => {
   const { userId } = route.params;
   let user;

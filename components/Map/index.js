@@ -12,8 +12,8 @@ const Map = ({ trip }) => {
       initialRegion={{
         latitude: trip.latitude,
         longitude: trip.longitude,
-        latitudeDelta: 0.015,
-        longitudeDelta: 0.0121,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
       }}
     >
       <Marker
@@ -21,7 +21,7 @@ const Map = ({ trip }) => {
           latitude: trip.latitude,
           longitude: trip.longitude,
         }}
-        title={trip.destinationInput}
+        title={trip.country}
       />
     </StyledMapView>
   );

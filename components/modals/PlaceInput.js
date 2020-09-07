@@ -5,6 +5,7 @@ import { View } from "native-base";
 import { debounce } from "lodash";
 import axios from "axios";
 
+
 import { Keyboard, TouchableWithoutFeedback } from "react-native";
 
 //Components
@@ -14,17 +15,17 @@ import Suggestions from "./Suggestions";
 import { StyledMapTextInput } from "./styles";
 
 const PlaceInput = ({ trip, setTrip }) => {
-  const getPlaces = async (input) => {
+
+  const getPlaces = _.debounce(async (input) => {
     const result = await axios.get(
-      `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyC9ug0NmoXwgxvq_96l0iAQcok8rCzlXAs
-      &input=${input}`
+      `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyDPlAdw1thw8hYHNNO8xbi8EO6_0Etn7Jo&input=${input}`
     );
     setTrip({
       ...trip,
       destinationInput: input,
       predictions: result.data.predictions,
     });
-  };
+  }, 1000);
 
   const getCoordinates = async (input) => {
     const response = await axios.get(
@@ -70,7 +71,11 @@ const PlaceInput = ({ trip, setTrip }) => {
       <ScrollView>
         <View>
           <StyledMapTextInput
-            onChangeText={(input) => getPlaces(input)}
+
+            onChangeText={(input) => {
+              getPlaces(input);
+              setTrip({ ...trip, destinationInput: input });
+            }}
             autoCapitalize="none"
             autoCorrect={false}
             placeholder="Add Location"

@@ -2,9 +2,14 @@ import React from "react";
 import { observer } from "mobx-react";
 import moment from "moment";
 
+
+// Styles
+import { CardItem, Left, Right, ListItem, Text, Icon } from "native-base";
+
 // Components
 import UpdateButton from "../buttons/UpdateButton";
 import Profile from "../Profile";
+
 
 // Styles
 import { CardItem, ListItem, Text, Icon } from "native-base";

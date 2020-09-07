@@ -9,7 +9,7 @@ const Suggestions = ({ prediction, handleDestination }) => {
       onPress={() => {
         handleDestination(
           prediction.structured_formatting.main_text,
-          prediction.matched_substrings.place_id
+          prediction.structured_formatting.place_id
         );
       }}
     >
