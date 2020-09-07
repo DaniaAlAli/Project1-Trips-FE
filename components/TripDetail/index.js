@@ -21,7 +21,6 @@ import {
   DatePicker,
 } from "native-base";
 
-
 import {
   CountryButtonStyled,
   DateButtonStyled,
@@ -32,11 +31,13 @@ import {
   StyledImage,
   StyledMapContainer,
 } from "./styles";
+// REVIEW: cleanup your imports
 
 const TripDetail = ({ route }) => {
   const { trip } = route.params;
 
   return (
+    // REVIEW: Remove the fragment
     <>
       <SafeAreaView>
         <ScrollView>
@@ -54,14 +55,12 @@ const TripDetail = ({ route }) => {
                                 "https://images.unsplash.com/photo-1564689510742-4e9c7584181d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
                             }
                       }
-
                     />
                     <DetailDiv>
                       <DetailTitle>
                         <CountryButtonStyled type="Entypo" name="location" />
                         Country: {trip.country}
                       </DetailTitle>
-               
                     </DetailDiv>
                     <DetailDiv>
                       <DetailTitle>

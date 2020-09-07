@@ -29,9 +29,8 @@ import {
   DiscoverButton,
 } from "./styles";
 
-
 import { Text, Spinner, Right, Left } from "native-base";
-
+// REVIEW: cleanup your imports
 
 const Profile = ({ route, navigation }) => {
   const { userId } = route.params;

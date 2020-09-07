@@ -9,6 +9,7 @@ import TripList from "../components/TripList";
 import tripStore from "../stores/tripStore";
 import authStore from "../stores/authStore";
 
+// REVIEW: Move the `Discover` folder inside the `components` folder.
 const Discover = ({ navigation }) => {
   const trips = tripStore.trips.filter(
     (trip) => trip.userId !== authStore.user.id

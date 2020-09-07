@@ -33,6 +33,7 @@ class AuthStore {
     }
   };
 
+  // REVIEW: Remove navigation
   signout = async (navigation) => {
     delete instance.defaults.headers.common.Authorization;
     await AsyncStorage.removeItem("myToken");
