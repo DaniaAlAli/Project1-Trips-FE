@@ -1,6 +1,5 @@
 import styled from "styled-components/native";
 import { Icon } from "native-base";
-import { SafeAreaView } from "react-native";
 
 export const CountryButtonStyled = styled(Icon)`
   color: purple;

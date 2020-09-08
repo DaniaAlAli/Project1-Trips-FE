@@ -14,7 +14,7 @@ const AddButton = () => {
   return (
     <>
       <AddButtonStyled onPress={() => setIsOpen(true)}>
-        <AddButtonText>+</AddButtonText>
+        <AddButtonText> Add New Trip</AddButtonText>
       </AddButtonStyled>
       <TripModal isOpen={isOpen} closeModal={closeModal} />
     </>

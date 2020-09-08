@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { ScrollView } from "react-native-gesture-handler";
 import { View } from "native-base";
-import { debounce } from "lodash";
+import _ from "lodash";
 import axios from "axios";
-
 
 import { Keyboard, TouchableWithoutFeedback } from "react-native";
 
@@ -15,7 +14,6 @@ import Suggestions from "./Suggestions";
 import { StyledMapTextInput } from "./styles";
 
 const PlaceInput = ({ trip, setTrip }) => {
-
   const getPlaces = _.debounce(async (input) => {
     const result = await axios.get(
       `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyDPlAdw1thw8hYHNNO8xbi8EO6_0Etn7Jo&input=${input}`
@@ -71,7 +69,6 @@ const PlaceInput = ({ trip, setTrip }) => {
       <ScrollView>
         <View>
           <StyledMapTextInput
-
             onChangeText={(input) => {
               getPlaces(input);
               setTrip({ ...trip, destinationInput: input });

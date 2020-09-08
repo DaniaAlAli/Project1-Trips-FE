@@ -9,21 +9,21 @@ export const BackgroundImage = styled.ImageBackground`
 `;
 
 export const SignInStyled = styled.Text`
-  margin-bottom: 100px;
-  font-size: 20px;
+  margin-top: 80px;
+  font-size: 18px;
   color: white;
   font-weight: bold;
   text-align: center;
   align-self: center;
   padding: 3px;
-  border: 5px;
+  border: 2px;
   border-radius: 8px;
   border-color: white;
 `;
 
 export const Title = styled.Text`
-  margin-bottom: 180px;
-  font-size: 20px;
+  margin-bottom: 50px;
+  font-size: 25px;
   color: white;
   font-weight: bold;
   text-align: center;

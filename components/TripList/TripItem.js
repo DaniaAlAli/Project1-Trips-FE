@@ -2,14 +2,9 @@ import React from "react";
 import { observer } from "mobx-react";
 import moment from "moment";
 
-
-// Styles
-import { CardItem, Left, Right, ListItem, Text, Icon } from "native-base";
-
 // Components
 import UpdateButton from "../buttons/UpdateButton";
 import Profile from "../Profile";
-
 
 // Styles
 import { CardItem, ListItem, Text, Icon } from "native-base";
@@ -32,7 +27,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
     <>
       <ListItem>
         <StyledContent>
-          <StyledCard>
+          <StyledCard style={{ backgroundColor: "#0D2747" }}>
             <CreatedAt>{moment(trip.createdAt).fromNow()}</CreatedAt>
             {!myTrips && (
               <OwnerOfTrip
@@ -58,7 +53,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 }
               />
             </CardItem>
-            <CardItem>
+            <CardItem style={{ backgroundColor: "#0D2747" }}>
               <Icon
                 type="AntDesign"
                 name={trip.favorited ? "star" : "staro"}
@@ -70,6 +65,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 onPress={() =>
                   navigation.navigate("Trip Detail", { trip: trip })
                 }
+                style={{ color: "white" }}
               >
                 {trip.destination}
               </Text>
