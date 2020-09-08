@@ -25,7 +25,7 @@ const Signin = ({ navigation }) => {
   };
 
   return (
-    <BackgroundImage source={require(`../../Plane.png`)}>
+    <BackgroundImage source={require(`../../star.jpeg`)}>
       <FormStyled>
         <Item floatingLabel>
           <Label style={{ color: "white" }}>Username</Label>

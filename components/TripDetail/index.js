@@ -32,7 +32,7 @@ const TripDetail = ({ route }) => {
           <Container>
             <Content>
               <Card style={{ flex: 1 }}>
-                <CardItem>
+                <CardItem style={{ backgroundColor: "#0D2747" }}>
                   <Body>
                     <StyledImage
                       source={

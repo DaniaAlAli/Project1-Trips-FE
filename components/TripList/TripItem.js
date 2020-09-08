@@ -27,7 +27,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
     <>
       <ListItem>
         <StyledContent>
-          <StyledCard>
+          <StyledCard style={{ backgroundColor: "#0D2747" }}>
             <CreatedAt>{moment(trip.createdAt).fromNow()}</CreatedAt>
             {!myTrips && (
               <OwnerOfTrip
@@ -53,7 +53,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 }
               />
             </CardItem>
-            <CardItem>
+            <CardItem style={{ backgroundColor: "#0D2747" }}>
               <Icon
                 type="AntDesign"
                 name={trip.favorited ? "star" : "staro"}
@@ -65,7 +65,6 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 onPress={() => {
                   navigation.navigate("Trip Detail", { trip: trip });
                 }}
-              >
                 {trip.destination}
               </Text>
             </CardItem>
