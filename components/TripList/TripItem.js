@@ -32,7 +32,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
             {!myTrips && (
               <OwnerOfTrip
                 onPress={() =>
-                  navigation.push("Profile", {
+                  navigation.navigate("Profile", {
                     userId: trip.userId,
                     trip: trip,
                   })
@@ -62,11 +62,9 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 onPress={() => tripStore.updateFavoritetrip(trip)}
               />
               <Text
-                onPress={() =>
-                  navigation.navigate("Trip Detail", { trip: trip })
-                }
-                style={{ color: "white" }}
-              >
+                onPress={() => {
+                  navigation.navigate("Trip Detail", { trip: trip });
+                }}
                 {trip.destination}
               </Text>
             </CardItem>

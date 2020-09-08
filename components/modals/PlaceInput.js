@@ -16,7 +16,8 @@ import { StyledMapTextInput } from "./styles";
 const PlaceInput = ({ trip, setTrip }) => {
   const getPlaces = _.debounce(async (input) => {
     const result = await axios.get(
-      `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyDPlAdw1thw8hYHNNO8xbi8EO6_0Etn7Jo&input=${input}`
+      `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyC9ug0NmoXwgxvq_96l0iAQcok8rCzlXAs
+      &input=${input}`
     );
     setTrip({
       ...trip,

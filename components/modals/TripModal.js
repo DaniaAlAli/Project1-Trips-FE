@@ -24,18 +24,20 @@ import {
 
 const TripModal = ({ closeModal, isOpen, oldTrip }) => {
   const [trip, setTrip] = useState(
-    oldTrip ?? {
-      country: "",
-      destination: "",
-      details: "",
-      image: "",
-      date: "",
-      // input: "",
-      predictions: [],
-      destinationInput: "",
-      latitude: "29.375859",
-      longitude: "47.9774052",
-    }
+    oldTrip
+      ? { ...oldTrip, predictions: [] }
+      : {
+          country: "",
+          destination: "",
+          details: "",
+          image: "",
+          date: "",
+          // input: "",
+          predictions: [],
+          destinationInput: "",
+          latitude: "29.375859",
+          longitude: "47.9774052",
+        }
   );
 
   const [selectedImage, setSelectedImage] = React.useState(null);
@@ -147,11 +149,7 @@ const TripModal = ({ closeModal, isOpen, oldTrip }) => {
             placeholderTextColor="#000000"
             value={trip.details}
           />
-          <PlaceInput
-            // value={trip.destinationInput}
-            trip={trip}
-            setTrip={setTrip}
-          />
+          <PlaceInput trip={trip} setTrip={setTrip} />
           <CreateButton onPress={handleSubmit}>
             <CreateButtonText>{oldTrip ? "Update" : "Create"}</CreateButtonText>
           </CreateButton>

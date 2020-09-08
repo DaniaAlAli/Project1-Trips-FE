@@ -1,6 +1,10 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import { observer } from "mobx-react";
+
+import BottomTabNavigator from "./BottomTabNavigator";
 
 //components
 import Home from "../Home";
@@ -12,35 +16,16 @@ import Discover from "../../Discover/index";
 import TripDetail from "../TripDetail";
 
 const { Navigator, Screen } = createStackNavigator();
+// const { Navigator, Screen } = createBottomTabNavigator();
 
 const RootNavigator = () => {
   return (
     <Navigator initialRouteName="Home">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
-        name="Discover"
-        component={Discover}
-        options={{ title: "Discover" }}
-      />
-
-      <Screen
-        name="Trip Detail"
-        component={TripDetail}
-        options={({ route }) => {
-          const { trip } = route.params;
-          console.log("RootNavigator -> trip", trip);
-          return {
-            title: trip.destination,
-          };
-        }}
-      />
-
-      <Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          headerShown: false,
-        }}
+        name="BottomTab"
+        component={BottomTabNavigator}
+        options={{ headerShown: false }}
       />
 
       <Screen

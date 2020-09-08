@@ -13,6 +13,7 @@ import AddButton from "../buttons/AddButton";
 import authStore from "../../stores/authStore";
 import tripStore from "../../stores/tripStore";
 import profileStore from "../../stores/profileStore";
+import SignoutButton from "../buttons/SignoutButton";
 
 //Styles
 import {
@@ -33,7 +34,7 @@ import {
 import { Text, Spinner, Right, Body } from "native-base";
 
 const Profile = ({ route, navigation }) => {
-  const { userId } = route.params;
+  const userId = route.params?.userId;
   let user;
   if (userId) {
     user = profileStore.profiles.find((user) => user.id === userId);
@@ -88,9 +89,18 @@ const Profile = ({ route, navigation }) => {
           <MyTripStyle>Welcome To My Trips ! {trips.length} </MyTripStyle>
         )}
         <TripList navigation={navigation} trips={trips} myTrips={!userId} />
-        <DiscoverButton block onPress={() => navigation.navigate("Discover")}>
-          <Text>{!userId ? ` Discover  ` : "< All trips"}</Text>
-        </DiscoverButton>
+        {userId && (
+          <DiscoverButton
+            block
+            onPress={() => {
+              navigation.navigate("Discover");
+            }}
+          >
+            <Text> All trips</Text>
+          </DiscoverButton>
+        )}
+
+        {!userId && <SignoutButton />}
       </ScrollView>
     </SafeAreaView>
   );
