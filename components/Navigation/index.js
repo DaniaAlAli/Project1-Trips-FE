@@ -9,7 +9,7 @@ import Signup from "../authentication/Signup";
 import Profile from "../Profile";
 import SignoutButton from "../buttons/SignoutButton";
 import Discover from "../../Discover/index";
-import TripDetail from "../TripDetail/index";
+import TripDetail from "../TripDetail";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -28,6 +28,7 @@ const RootNavigator = () => {
         component={TripDetail}
         options={({ route }) => {
           const { trip } = route.params;
+          console.log("RootNavigator -> trip", trip);
           return {
             title: trip.destination,
           };

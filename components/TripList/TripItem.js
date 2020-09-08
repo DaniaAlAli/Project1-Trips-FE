@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { observer } from "mobx-react";
 import moment from "moment";
 
@@ -7,7 +7,7 @@ import UpdateButton from "../buttons/UpdateButton";
 import Profile from "../Profile";
 
 // Styles
-import { CardItem, Left, Right, ListItem, Text, Icon } from "native-base";
+import { CardItem, ListItem, Text, Icon } from "native-base";
 import { color } from "react-native-reanimated";
 import {
   StyledCard,
@@ -21,7 +21,6 @@ import {
 
 // Stores
 import tripStore from "../../stores/tripStore";
-import authStore from "../../stores/authStore";
 
 const TripItem = ({ trip, navigation, myTrips }) => {
   return (
@@ -69,10 +68,6 @@ const TripItem = ({ trip, navigation, myTrips }) => {
               >
                 {trip.destination}
               </Text>
-
-              <Right>
-                <Text>{trip.details}</Text>
-              </Right>
             </CardItem>
             {myTrips && (
               <ButtonWrapper>

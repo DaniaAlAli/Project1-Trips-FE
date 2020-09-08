@@ -41,16 +41,15 @@ class AuthStore {
 
   updateProfile = async (updatedProfile) => {
     try {
+      const formData = new FormData();
+      for (const key in updatedProfile)
+        formData.append(key, updatedProfile[key]);
       await instance.put(`/profile`, updatedProfile);
       const profile = this.user.profile;
       for (const key in updatedProfile) profile[key] = updatedProfile[key];
     } catch (error) {
       console.log("error:", error);
     }
-  };
-
-  getUserById = (userId) => {
-    return this.users.find((user) => user.id === userId);
   };
 
   checkForToken = async () => {

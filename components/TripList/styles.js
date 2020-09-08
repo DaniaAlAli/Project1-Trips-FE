@@ -1,7 +1,6 @@
 import styled from "styled-components/native";
 import { Image } from "react-native";
-import { Card, Content } from "native-base";
-import { Icon, View } from "native-base";
+import { Card, Content, Icon, View } from "native-base";
 
 export const DeleteTrip = styled(Icon)`
   color: red;

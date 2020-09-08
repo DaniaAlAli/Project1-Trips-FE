@@ -10,27 +10,16 @@ import tripStore from "../../stores/tripStore";
 import Map from "../Map";
 
 // Styles
-import {
-  Body,
-  Content,
-  Text,
-  Container,
-  Card,
-  CardItem,
-  View,
-  DatePicker,
-} from "native-base";
-
+import { Body, Content, Text, Container, Card, CardItem } from "native-base";
 
 import {
   CountryButtonStyled,
   DateButtonStyled,
   DetailTitle,
   DetailDiv,
-  DetailField,
-  DetailButtonStyled,
   StyledImage,
   StyledMapContainer,
+  DetailButtonStyled,
 } from "./styles";
 
 const TripDetail = ({ route }) => {
@@ -54,14 +43,12 @@ const TripDetail = ({ route }) => {
                                 "https://images.unsplash.com/photo-1564689510742-4e9c7584181d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
                             }
                       }
-
                     />
                     <DetailDiv>
                       <DetailTitle>
                         <CountryButtonStyled type="Entypo" name="location" />
                         Country: {trip.country}
                       </DetailTitle>
-               
                     </DetailDiv>
                     <DetailDiv>
                       <DetailTitle>
@@ -78,7 +65,7 @@ const TripDetail = ({ route }) => {
                         Details: {trip.details}
                       </DetailTitle>
                     </DetailDiv>
-                    <Map trip={trip} />
+                    {trip.latitude && <Map trip={trip} />}
                   </Body>
                 </CardItem>
               </Card>

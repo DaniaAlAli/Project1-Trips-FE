@@ -1,9 +1,27 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import { Modal } from "react-native";
+import {
+  Modal,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from "react-native";
+
+import * as Permissions from "expo-permissions";
+import * as ImagePicker from "expo-image-picker";
 
 //Stores
 import authStore from "../../stores/authStore";
+
+const styles = StyleSheet.create({
+  /* Other styles hidden to keep the example brief... */
+  thumbnail: {
+    height: 200,
+    width: 200,
+    borderRadius: 500,
+  },
+});
 
 //Styling
 import {
@@ -30,6 +48,49 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
 
   const { user } = authStore;
 
+  // Image
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  let openImagePickerAsync = async () => {
+    if (Platform.OS !== "web") {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      if (status !== "granted") {
+        alert("Sorry, we need camera roll permissions to make this work!");
+      }
+    }
+
+    let pickerResult = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (pickerResult.cancelled === true) {
+      return;
+    }
+    setSelectedImage({ localUri: pickerResult.uri });
+
+    // ImagePicker saves the taken photo to disk and returns a local URI to it
+    let localUri = pickerResult.uri;
+    let filename = localUri.split("/").pop();
+
+    // Infer the type of the image
+    let match = /\.(\w+)$/.exec(filename);
+    let type = match ? `image/${match[1]}` : `image`;
+
+    // Assume "photo" is the name of the form field the server expects
+    setProfile({ ...profile, image: { uri: localUri, name: filename, type } });
+  };
+
+  // if (selectedImage !== null) {
+  //   return (
+  //     <Image
+  //       source={{ uri: selectedImage.localUri }}
+  //       style={styles.thumbnail}
+  //     />
+  //   );
+  // }
   return (
     <Modal
       transparent={true}
@@ -46,7 +107,7 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
           />
           <ModalTitle>Edit Profile</ModalTitle>
           <NameField>
-            Name: {authStore.user.firstName} {authStore.user.lastName}
+            Name: {user.firstName} {user.lastName}
           </NameField>
           <ModalTextInput
             onChangeText={(username) => setProfile({ ...user, username })}
@@ -61,12 +122,9 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
             placeholderTextColor="#000000"
             value={profile.bio}
           />
-          <ModalTextInput
-            onChangeText={(image) => setProfile({ ...profile, image })}
-            placeholder="image"
-            placeholderTextColor="#000000"
-            value={profile.image}
-          />
+          <TouchableOpacity onPress={openImagePickerAsync}>
+            <Text>Pick a photo</Text>
+          </TouchableOpacity>
           <CreateButton onPress={handleSubmit}>
             <CreateButtonText>Update</CreateButtonText>
           </CreateButton>
