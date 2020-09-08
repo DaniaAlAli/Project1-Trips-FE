@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Icon } from "native-base";
+import { Icon, Text } from "native-base";
 
 //Components
 import ProfileModal from "../modals/ProfileModal";
@@ -14,9 +14,7 @@ const EditButton = ({ profile }) => {
 
   return (
     <>
-      <EditProfile onPress={() => setIsOpen(true)}>
-        <Icon type="Feather" name="edit" />
-      </EditProfile>
+      <EditProfile onPress={() => setIsOpen(true)}>Edit Profile</EditProfile>
       <ProfileModal
         isOpen={isOpen}
         closeModal={closeModal}

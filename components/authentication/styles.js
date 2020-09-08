@@ -3,7 +3,7 @@ import { Button, Form } from "native-base";
 
 export const BackgroundImage = styled.ImageBackground`
   width: 100%;
-  height: 100%;s
+  height: 100%;
 `;
 
 export const FormStyled = styled(Form)`

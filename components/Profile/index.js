@@ -27,11 +27,10 @@ import {
   ProfileImage,
   UserName,
   DiscoverButton,
+  BackgroundImage,
 } from "./styles";
 
 import { Text, Spinner, Right, Body } from "native-base";
-
-
 
 const Profile = ({ route, navigation }) => {
   const { userId } = route.params;
@@ -55,31 +54,28 @@ const Profile = ({ route, navigation }) => {
     <SafeAreaView>
       <ScrollView>
         <UserInfo>
-          {!userId && (
-            <Right>
-              <EditButton profile={profile} />
-              <AddButton />
-            </Right>
-          )}
-          <Body>
-            <ProfileImage
-              source={
-                profile.image ?? {
-                  uri:
-                    "https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png",
-                }
-              }
-            />
-            <Name>
-              <FirstName>{user.firstName}</FirstName>
-              <LastName>{user.lastName}</LastName>
-            </Name>
-            <UserName>@{user.username}</UserName>
-            <Joined>
-              Traveling since {moment(user.createdAt).format("dddd")}
-            </Joined>
-            <Bio>{profile.bio}</Bio>
-          </Body>
+          <BackgroundImage source={require(`../../galaxy.jpg`)}>
+            <Body>
+              <ProfileImage
+                source={profile.image ?? require(`../../user1.png`)}
+              />
+              <Name>
+                <FirstName>{user.firstName}</FirstName>
+                <LastName> {user.lastName}</LastName>
+              </Name>
+              <UserName>Username : @{user.username}</UserName>
+              <Joined>
+                Traveling since : {moment(user.createdAt).format("dddd")}
+              </Joined>
+              <Bio> Bio : {profile.bio}</Bio>
+              {!userId && (
+                <Right>
+                  <EditButton profile={profile} />
+                  <AddButton />
+                </Right>
+              )}
+            </Body>
+          </BackgroundImage>
         </UserInfo>
 
         {favoritedTrips.length !== 0 && (
