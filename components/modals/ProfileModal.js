@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { observer } from "mobx-react";
 import {
   Modal,
+  Image,
   Platform,
   StyleSheet,
   Text,
