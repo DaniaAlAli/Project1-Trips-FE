@@ -21,7 +21,7 @@ const Signin = ({ navigation }) => {
 
   const handleSubmit = async () => {
     await authStore.signin(user);
-    if (authStore.user) navigation.navigate("Profile", { user: user });
+    if (authStore.user) navigation.navigate("BottomTab", { user: user });
   };
 
   return (
@@ -52,7 +52,13 @@ const Signin = ({ navigation }) => {
       </SignUpButtonStyled>
 
       <CreateNewAccountStyled primary>
-        <Text onPress={() => navigation.navigate("Signup")}>New user?</Text>
+        <Text
+          onPress={() => {
+            navigation.navigate("Signup");
+          }}
+        >
+          New user?
+        </Text>
       </CreateNewAccountStyled>
     </BackgroundImage>
   );

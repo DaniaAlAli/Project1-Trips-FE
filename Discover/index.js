@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { Content } from "native-base";
+import { Content, Spinner } from "native-base";
 
 //Components
 import TripList from "../components/TripList";
@@ -10,6 +10,7 @@ import tripStore from "../stores/tripStore";
 import authStore from "../stores/authStore";
 
 const Discover = ({ navigation }) => {
+  if (!authStore.user) return <Spinner />;
   const trips = tripStore.trips.filter(
     (trip) => trip.userId !== authStore.user.id
   );

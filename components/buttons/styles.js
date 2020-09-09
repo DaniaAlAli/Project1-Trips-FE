@@ -41,6 +41,8 @@ export const EditProfile = styled(Button)`
 `;
 
 export const SignoutStyledButton = styled(Icon)`
-  margin-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
   color: red;
 `;

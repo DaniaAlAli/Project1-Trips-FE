@@ -2,14 +2,9 @@ import React from "react";
 import { observer } from "mobx-react";
 import moment from "moment";
 
-
-// Styles
-import { CardItem, Left, Right, ListItem, Text, Icon } from "native-base";
-
 // Components
 import UpdateButton from "../buttons/UpdateButton";
 import Profile from "../Profile";
-
 
 // Styles
 import { CardItem, ListItem, Text, Icon } from "native-base";
@@ -37,7 +32,7 @@ const TripItem = ({ trip, navigation, myTrips }) => {
             {!myTrips && (
               <OwnerOfTrip
                 onPress={() =>
-                  navigation.push("Profile", {
+                  navigation.navigate("Profile", {
                     userId: trip.userId,
                     trip: trip,
                   })
@@ -67,9 +62,9 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 onPress={() => tripStore.updateFavoritetrip(trip)}
               />
               <Text
-                onPress={() =>
-                  navigation.navigate("Trip Detail", { trip: trip })
-                }
+                onPress={() => {
+                  navigation.navigate("Trip Detail", { trip: trip });
+                }}
               >
                 {trip.destination}
               </Text>

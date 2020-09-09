@@ -7,17 +7,17 @@ import { SignoutStyledButton } from "./styles";
 
 // Stores
 import authStore from "../../stores/authStore";
-import { Spinner } from "native-base";
+import { Spinner, Icon } from "native-base";
 
 const SignoutButton = () => {
   const navigation = useNavigation();
   const submit = async () => {
     await authStore.signout(navigation);
-    navigation.replace("Home");
+    navigation.navigate("Home");
   };
 
   return (
-    <SignoutStyledButton type="Octicons" name="circle-slash" onPress={submit} />
+    <SignoutStyledButton onPress={submit} type="AntDesign" name="logout" />
   );
 };
 

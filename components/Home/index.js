@@ -12,6 +12,7 @@ import {
 import { Text } from "native-base";
 
 const Home = ({ navigation }) => {
+  // if(!authStore.user)
   const user = authStore.user;
   return (
     <BackgroundImage
@@ -21,16 +22,18 @@ const Home = ({ navigation }) => {
       }}
     >
       <Title>
-        {authStore.user
+        {user
           ? `Hello, ${user.username} ! 
   Would You Like Share your Trips?`
           : "Trips World"}
       </Title>
       <SignInStyled
         onPress={
-          authStore.user
+          user
             ? authStore.signout
-            : () => navigation.navigate("Signin")
+            : () => {
+                navigation.navigate("Signin");
+              }
         }
       >
         <SignInStyled>{authStore.user ? "Sign out" : "Sign in"}</SignInStyled>

@@ -44,7 +44,7 @@ class AuthStore {
       const formData = new FormData();
       for (const key in updatedProfile)
         formData.append(key, updatedProfile[key]);
-      await instance.put(`/profile`, updatedProfile);
+      await instance.put(`/profile`, formData);
       const profile = this.user.profile;
       for (const key in updatedProfile) profile[key] = updatedProfile[key];
     } catch (error) {
