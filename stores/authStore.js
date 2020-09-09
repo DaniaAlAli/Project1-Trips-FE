@@ -52,6 +52,17 @@ class AuthStore {
     }
   };
 
+  update = async (updatedProfile) => {
+    try {
+      console.log("AuthStore -> update -> updatedProfile", updatedProfile);
+      const form = new FormData();
+      for (const key in updatedProfile) form.append(key, updatedProfile[key]);
+      await instance.put(`profile`, form);
+    } catch (error) {
+      console.log("AuthStore -> update -> error", error);
+    }
+  };
+
   checkForToken = async () => {
     const token = await AsyncStorage.getItem("myToken");
     if (token) {

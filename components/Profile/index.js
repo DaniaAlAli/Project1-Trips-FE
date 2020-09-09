@@ -58,7 +58,11 @@ const Profile = ({ route, navigation }) => {
           <BackgroundImage source={require(`../../galaxy.jpg`)}>
             <Body>
               <ProfileImage
-                source={profile.image ?? require(`../../user1.png`)}
+                source={
+                  profile.image
+                    ? { uri: profile.image }
+                    : require(`../../user1.png`)
+                }
               />
               <Name>
                 <FirstName>{user.firstName}</FirstName>

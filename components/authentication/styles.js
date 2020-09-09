@@ -14,15 +14,13 @@ export const FormStyled = styled(Form)`
   padding-left: 60px;
 `;
 
-export const CreateNewAccountStyled = styled(Button)`
+export const CreateNewAccountStyled = styled.Text`
   align-self: center;
   margin-bottom: 40%;
   margin-top: 3px;
-  background-color: black;
 `;
 
-export const SignUpButtonStyled = styled(Button)`
+export const SignUpButtonStyled = styled.Text`
   align-self: center;
   margin-top: 10px;
-  background-color: black;
 `;

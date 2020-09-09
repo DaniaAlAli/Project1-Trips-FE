@@ -48,7 +48,9 @@ const Signin = ({ navigation }) => {
       </FormStyled>
 
       <SignUpButtonStyled onPress={handleSubmit} block>
-        <Text>Sign in</Text>
+        <Text style={{ color: "white", fontSize: "18", fontWeight: "bold" }}>
+          Sign in
+        </Text>
       </SignUpButtonStyled>
 
       <CreateNewAccountStyled primary>
@@ -56,8 +58,13 @@ const Signin = ({ navigation }) => {
           onPress={() => {
             navigation.navigate("Signup");
           }}
+          style={{ color: "white", fontSize: "15" }}
         >
-          New user?
+          New to trips?
+          <Text style={{ color: "white", fontSize: "18", fontWeight: "bold" }}>
+            {" "}
+            Sign up
+          </Text>
         </Text>
       </CreateNewAccountStyled>
     </BackgroundImage>

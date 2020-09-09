@@ -26,8 +26,8 @@ export const DetailField = styled.Text`
 `;
 
 export const StyledImage = styled.Image`
-  height: 300;
-  width: 300;
+  height: 250;
+  width: 330;
   flex: 1;
   margin-right: auto;
   margin-left: auto;

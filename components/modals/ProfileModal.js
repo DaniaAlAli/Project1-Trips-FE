@@ -42,7 +42,7 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
   });
 
   const handleSubmit = () => {
-    authStore.updateProfile(profile);
+    authStore.update(profile);
     closeModal();
   };
 
@@ -81,16 +81,17 @@ const ProfileModal = ({ closeModal, isOpen, oldProfile }) => {
 
     // Assume "photo" is the name of the form field the server expects
     setProfile({ ...profile, image: { uri: localUri, name: filename, type } });
+    console.log("openImagePickerAsync -> profile", profile);
   };
 
-  // if (selectedImage !== null) {
-  //   return (
-  //     <Image
-  //       source={{ uri: selectedImage.localUri }}
-  //       style={styles.thumbnail}
-  //     />
-  //   );
-  // }
+  if (selectedImage !== null) {
+    return (
+      <Image
+        source={{ uri: selectedImage.localUri }}
+        style={styles.thumbnail}
+      />
+    );
+  }
   return (
     <Modal
       transparent={true}

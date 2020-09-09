@@ -15,7 +15,7 @@ export const SignInStyled = styled.Text`
   font-weight: bold;
   text-align: center;
   align-self: center;
-  padding: 3px;
+  padding: 6px;
   border: 2px;
   border-radius: 8px;
   border-color: white;

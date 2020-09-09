@@ -65,6 +65,8 @@ const TripItem = ({ trip, navigation, myTrips }) => {
                 onPress={() => {
                   navigation.navigate("Trip Detail", { trip: trip });
                 }}
+                style={{ color: "white" }}
+              >
                 {trip.destination}
               </Text>
             </CardItem>

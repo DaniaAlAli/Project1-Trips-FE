@@ -22,16 +22,8 @@ const Home = ({ navigation }) => {
   Would You Like Share your Trips?`
           : "Trips World"}
       </Title>
-      <SignInStyled
-        onPress={
-          user
-            ? authStore.signout
-            : () => {
-                navigation.navigate("Signin");
-              }
-        }
-      >
-        <SignInStyled>{authStore.user ? "Sign out" : "Sign in"}</SignInStyled>
+      <SignInStyled onPress={() => navigation.navigate("Signin")}>
+        <SignInStyled>Sign in</SignInStyled>
       </SignInStyled>
     </BackgroundImage>
   );
